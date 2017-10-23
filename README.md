@@ -37,4 +37,4 @@ Using android 4.1(Ice Cream Sandwich)
 
 ## Authors
 
-See the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+See the list of [contributors](https://github.com/grantguglielmo/Trivial-Pursuit/contributors) who participated in this project.
