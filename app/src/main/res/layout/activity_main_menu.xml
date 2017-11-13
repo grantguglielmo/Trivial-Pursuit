@@ -4,7 +4,27 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/colorPrimary"
     tools:context="com.trivial_pursuit.trivialpursuit.MainMenu">
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:src="@drawable/trivialwheel"
+        android:layout_below="@+id/Game_Title"
+        android:layout_centerHorizontal="true" />
+
+    <ImageView
+        android:id="@+id/Game_Title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/trivial"
+        android:scaleType="fitXY"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -29,18 +49,19 @@
         android:layout_height="wrap_content"
         android:text="Quickplay"
         android:onClick="startLocal"
-        android:layout_centerVertical="true"
+        android:id="@+id/button3"
+        android:layout_above="@+id/button2"
         android:layout_alignLeft="@+id/button2"
         android:layout_alignStart="@+id/button2"
-        android:id="@+id/button3" />
+        android:layout_marginBottom="19dp" />
     <Button
         android:layout_width="50pt"
         android:layout_height="wrap_content"
         android:text="Settings"
         android:onClick="startSettings"
         android:id="@+id/button2"
-        android:layout_marginTop="30dp"
-        android:layout_below="@+id/button3"
+        android:layout_marginBottom="59dp"
+        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true" />
 
 </RelativeLayout>
