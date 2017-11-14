@@ -13,9 +13,9 @@ bin/
 gen/
 out/
 
-# Gradle files
-.gradle
+# Gradle files\
 .gradle/
+gradle/
 /build
 /captures
 build/

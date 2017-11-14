@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/qset"
+    tools:context="com.trivial_pursuit.trivialpursuit.LocalPlayNumP">
+    <TextView
+        android:id="@+id/text_view_id"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:textSize="32sp"
+        android:text="Select Number\n   of Players"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="152dp" />
+    <Spinner
+        android:id="@+id/spinner1"
+        android:layout_width="42pt"
+        android:layout_height="wrap_content"
+        android:background="@android:drawable/btn_dropdown"
+        android:spinnerMode="dropdown"
+        android:layout_alignTop="@+id/buttonNext"
+        android:layout_alignLeft="@+id/text_view_id"
+        android:layout_alignStart="@+id/text_view_id" />
+    <Button
+        android:layout_width="50pt"
+        android:layout_height="wrap_content"
+        android:text="Next"
+        android:onClick="startColorSel"
+        android:id="@+id/buttonNext"
+        android:layout_below="@+id/text_view_id"
+        android:layout_alignRight="@+id/text_view_id"
+        android:layout_alignEnd="@+id/text_view_id"
+        android:layout_marginTop="72dp" />
+</RelativeLayout>

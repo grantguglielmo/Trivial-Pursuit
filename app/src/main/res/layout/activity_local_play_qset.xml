@@ -6,5 +6,31 @@
     android:layout_height="match_parent"
     android:id="@+id/qset"
     tools:context="com.trivial_pursuit.trivialpursuit.LocalPlayQSet">
-
+    <TextView
+        android:id="@+id/text_view_id"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:textSize="32sp"
+        android:text="Select Question Set"
+        android:layout_marginBottom="83dp"
+        android:layout_above="@+id/buttonM"
+        android:layout_centerHorizontal="true" />
+    <Button
+        android:layout_width="50pt"
+        android:layout_height="wrap_content"
+        android:text="Master\nEdition"
+        android:onClick="onClickM"
+        android:id="@+id/buttonM"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
+    <Button
+        android:layout_width="50pt"
+        android:layout_height="wrap_content"
+        android:text="Custom"
+        android:onClick="onClickC"
+        android:id="@+id/buttonC"
+        android:layout_marginTop="48dp"
+        android:layout_below="@+id/buttonM"
+        android:layout_alignLeft="@+id/buttonM"
+        android:layout_alignStart="@+id/buttonM" />
 </RelativeLayout>
