@@ -15,6 +15,10 @@ public class Globs {
     static String qsetPath;
     static int playerCnt;
 
+    static boolean isQuick;
+
+    static boolean loadedQSet;
+
     static BufferedReader blueFile;
     static BufferedReader pinkFile;
     static BufferedReader yellowFile;

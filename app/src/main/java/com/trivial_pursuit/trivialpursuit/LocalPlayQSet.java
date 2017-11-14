@@ -15,13 +15,25 @@ public class LocalPlayQSet extends AppCompatActivity {
 
     protected void onClickM(View v){
         Globs.qsetPath = "Questions/Master/";
-        Intent intent = new Intent(this, LocalPlayNumP.class);
-        startActivity(intent);
+        if(Globs.isQuick){
+            Intent intent = new Intent(this, Quick.class);
+            startActivity(intent);
+        }
+        else {
+            Intent intent = new Intent(this, LocalPlayNumP.class);
+            startActivity(intent);
+        }
     }
 
     protected void onClickC(View v){
         Globs.qsetPath = "Questions/Custom/";
-        Intent intent = new Intent(this, LocalPlayNumP.class);
-        startActivity(intent);
+        if(Globs.isQuick){
+            Intent intent = new Intent(this, Quick.class);
+            startActivity(intent);
+        }
+        else {
+            Intent intent = new Intent(this, LocalPlayNumP.class);
+            startActivity(intent);
+        }
     }
 }

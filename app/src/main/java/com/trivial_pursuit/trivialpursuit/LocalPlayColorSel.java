@@ -269,4 +269,74 @@ public class LocalPlayColorSel extends AppCompatActivity {
             myBtn.setImageDrawable(icon);
         }
     }
+
+    @Override
+    public void onBackPressed()
+    {
+        if(player == 1) {
+            super.onBackPressed();
+        }
+        else{
+            player--;
+            Globs.Colors chk = null;
+            switch(player) {
+                case 1:
+                    chk = Globs.p1;
+                    Globs.p1 = null;
+                    break;
+                case 2:
+                    chk = Globs.p2;
+                    Globs.p2 = null;
+                    break;
+                case 3:
+                    chk = Globs.p3;
+                    Globs.p3 = null;
+                    break;
+                case 4:
+                    chk = Globs.p4;
+                    Globs.p4 = null;
+                    break;
+                case 5:
+                    chk = Globs.p5;
+                    Globs.p5 = null;
+                    break;
+                case 6:
+                    chk = Globs.p6;
+                    Globs.p6 = null;
+                    break;
+            }
+            TextView tv1 = (TextView) findViewById(R.id.textColorSel);
+            tv1.setText("Player " + player + " Select\n   Your Color");
+            ImageButton myBtn = null;
+            Drawable originalIcon = null;
+            switch (chk) {
+                case BLUE:
+                    originalIcon = ContextCompat.getDrawable(getApplicationContext(), R.drawable.bluewheel);
+                    myBtn = (ImageButton) findViewById(R.id.imageButton4);
+                    break;
+                case PINK:
+                    originalIcon = ContextCompat.getDrawable(getApplicationContext(), R.drawable.pinkwheel);
+                    myBtn = (ImageButton) findViewById(R.id.imageButton2);
+                    break;
+                case YELLOW:
+                    originalIcon = ContextCompat.getDrawable(getApplicationContext(), R.drawable.yellowwheel);
+                    myBtn = (ImageButton) findViewById(R.id.imageButton3);
+                    break;
+                case PURPLE:
+                    originalIcon = ContextCompat.getDrawable(getApplicationContext(), R.drawable.purplewheel);
+                    myBtn = (ImageButton) findViewById(R.id.imageButton5);
+                    break;
+                case GREEN:
+                    originalIcon = ContextCompat.getDrawable(getApplicationContext(), R.drawable.greenwheel);
+                    myBtn = (ImageButton) findViewById(R.id.imageButton6);
+                    break;
+                case ORANGE:
+                    originalIcon = ContextCompat.getDrawable(getApplicationContext(), R.drawable.orangewheel);
+                    myBtn = (ImageButton) findViewById(R.id.imageButton7);
+                    break;
+            }
+            myBtn.setEnabled(true);
+            myBtn.setImageDrawable(originalIcon);
+        }
+    }
 }

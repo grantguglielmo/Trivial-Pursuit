@@ -25,6 +25,26 @@ public class LocalPlayGame extends AppCompatActivity {
         setContentView(R.layout.activity_local_play_game);
 
         try {
+            if(Globs.loadedQSet){
+                Globs.blueFile.close();
+                Globs.pinkFile.close();
+                Globs.yellowFile.close();
+                Globs.purpleFile.close();
+                Globs.greenFile.close();
+                Globs.orangeFile.close();
+                SharedPreferences mPref = getSharedPreferences(Globs.qsetPath.substring(Globs.qsetPath.indexOf("/")+1
+                        , Globs.qsetPath.length() - 1), 0);
+                SharedPreferences.Editor editor = mPref.edit();
+                editor.putString("blue", Integer.toString(Globs.blueIdx));
+                editor.putString("pink", Integer.toString(Globs.pinkIdx));
+                editor.putString("yellow", Integer.toString(Globs.yellowIdx));
+                editor.putString("purple", Integer.toString(Globs.purpleIdx));
+                editor.putString("green", Integer.toString(Globs.greenIdx));
+                editor.putString("orange", Integer.toString(Globs.orangeIdx));
+                editor.commit();
+            }
+            Globs.loadedQSet = true;
+
             AssetManager am = getApplicationContext().getAssets();
             InputStream is = am.open(Globs.qsetPath + "blue.txt");
             Globs.blueFile = new BufferedReader(new InputStreamReader(is));
