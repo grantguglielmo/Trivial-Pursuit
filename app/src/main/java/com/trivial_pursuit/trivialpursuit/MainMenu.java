@@ -20,7 +20,7 @@ public class MainMenu extends AppCompatActivity {
                 Animation.RELATIVE_TO_SELF, 0.5f);
 
         rotateAnimation.setInterpolator(new LinearInterpolator());
-        rotateAnimation.setDuration(1000);
+        rotateAnimation.setDuration(4000);
         rotateAnimation.setRepeatCount(Animation.INFINITE);
 
 
