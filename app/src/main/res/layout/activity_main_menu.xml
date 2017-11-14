@@ -12,7 +12,7 @@
         android:id="@+id/imageView1"
         android:layout_width="300dp"
         android:layout_height="300dp"
-        android:src="@drawable/trivialwheel"
+        android:src="@drawable/trivialwheel2"
         android:layout_below="@+id/Game_Title"
         android:layout_centerHorizontal="true" />
 
@@ -48,7 +48,7 @@
         android:layout_width="50pt"
         android:layout_height="wrap_content"
         android:text="Quickplay"
-        android:onClick="startLocal"
+        android:onClick="startQuick"
         android:id="@+id/button3"
         android:layout_above="@+id/button2"
         android:layout_alignLeft="@+id/button2"

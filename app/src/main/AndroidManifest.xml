@@ -17,6 +17,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".LocalPlayQSet"></activity>
+        <activity android:name=".Quick"></activity>
+        <activity android:name=".Settings"></activity>
     </application>
 
 </manifest>

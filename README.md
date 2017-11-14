@@ -16,9 +16,9 @@ Pull from git or something
 
 ### And coding style
 
-Use tabs
-Starting brackets inline, and ending on their own line
-Comments start on col 69
+Use tabs  
+Starting brackets inline, and ending on their own line  
+Comments start on col 69  
 
 ## Deployment
 
@@ -26,10 +26,10 @@ Compile with android studio
 
 ## Contributing
 
-Vibhu Appalaraju
-Robert Bolt
-Grant Guglielmo
-Mohit Joshi
+Vibhu Appalaraju  
+Robert Bolt  
+Grant Guglielmo  
+Mohit Joshi  
 
 ## Versioning
 
