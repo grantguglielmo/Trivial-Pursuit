@@ -20,32 +20,20 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Sound"
         android:layout_below="@+id/seekBar1"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="40dp"
-        android:text="Sound" />
-
-    <Switch
-        android:id="@+id/switch1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/textView2"
-        android:layout_alignRight="@+id/textView2"
-        android:layout_below="@+id/textView2"
-        android:layout_marginTop="45dp"
-        android:text="Sound Effects" />
+        android:layout_centerHorizontal="true" />
 
     <Switch
         android:id="@+id/switch2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/switch1"
-        android:layout_alignRight="@+id/switch1"
-        android:layout_below="@+id/switch1"
-        android:layout_marginEnd="15dp"
-        android:layout_marginRight="15dp"
         android:layout_marginTop="40dp"
-        android:text="Timer" />
+        android:text="Timer"
+        android:layout_below="@+id/textView7"
+        android:layout_alignLeft="@+id/button4"
+        android:layout_alignStart="@+id/button4" />
 
     <SeekBar
         android:id="@+id/seekBar2"
@@ -60,20 +48,48 @@
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/switch1"
-        android:layout_alignRight="@+id/switch1"
         android:layout_below="@+id/seekBar2"
-        android:layout_marginTop="36dp"
-        android:text="0" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="34dp"
+        android:text="1" />
 
     <TextView
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/textView3"
-        android:layout_alignRight="@+id/textView3"
+        android:layout_marginTop="24dp"
+        android:text="Select Minutes"
         android:layout_below="@+id/switch2"
+        android:layout_alignRight="@+id/switch2"
+        android:layout_alignEnd="@+id/switch2" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView3"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="14dp"
+        android:onClick="Backbutton"
+        android:text="Back" />
+
+    <SeekBar
+        android:id="@+id/seekBar"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:layout_below="@+id/textView2"
+        android:layout_alignLeft="@+id/seekBar1"
+        android:layout_alignStart="@+id/seekBar1" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="27dp"
-        android:text="Select Minutes" />
+        android:text="Sound Effects"
+        android:layout_below="@+id/seekBar"
+        android:layout_alignRight="@+id/button4"
+        android:layout_alignEnd="@+id/button4" />
 
 </RelativeLayout>
