@@ -50,11 +50,13 @@ public class LocalPlayNumP extends AppCompatActivity implements AdapterView.OnIt
     }
 
     public void onNothingSelected(AdapterView<?> parent) {
-        // TODO Auto-generated method stub
         Globs.playerCnt = 2;
     }
 
     protected void startColorSel(View v){
+        Spinner mySpinner=(Spinner) findViewById(R.id.spinner1);
+        String text = mySpinner.getSelectedItem().toString();
+        Globs.playerCnt = Integer.parseInt(text);
         Intent intent = new Intent(this, LocalPlayColorSel.class);
         startActivity(intent);
     }

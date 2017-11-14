@@ -4,6 +4,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
     tools:context="com.trivial_pursuit.trivialpursuit.Quick">
-
+    <ImageView
+        android:id="@+id/card"
+        android:layout_width="500dp"
+        android:layout_height="500dp"
+        android:src="@drawable/trivialcardblue"
+        android:layout_centerHorizontal="true" />
+    <TextView
+        android:id="@+id/questionTxt"
+        android:layout_height="150dp"
+        android:layout_width="300dp"
+        android:textSize="24sp"
+        android:text="What is your favorite colour?"
+        android:textColor="@color/black_text"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="189dp" />
 </RelativeLayout>
