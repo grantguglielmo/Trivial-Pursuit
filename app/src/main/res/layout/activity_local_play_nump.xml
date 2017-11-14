@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/qset"
+    android:id="@+id/nump"
+    android:background="@color/colorPrimary"
     tools:context="com.trivial_pursuit.trivialpursuit.LocalPlayNumP">
     <TextView
         android:id="@+id/text_view_id"
@@ -12,6 +13,7 @@
         android:layout_width="wrap_content"
         android:textSize="32sp"
         android:text="Select Number\n   of Players"
+        android:textColor="@color/black_text"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="152dp" />

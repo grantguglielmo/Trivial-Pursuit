@@ -19,6 +19,7 @@
         <activity android:name=".LocalPlayQSet"></activity>
         <activity android:name=".LocalPlayNumP"></activity>
         <activity android:name=".LocalPlayColorSel"></activity>
+        <activity android:name=".LocalPlayGame"></activity>
         <activity android:name=".Quick"></activity>
         <activity android:name=".Settings"></activity>
     </application>
