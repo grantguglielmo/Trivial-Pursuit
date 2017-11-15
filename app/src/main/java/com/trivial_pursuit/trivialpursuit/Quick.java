@@ -1,15 +1,25 @@
 package com.trivial_pursuit.trivialpursuit;
 
+import android.animation.Animator;
+import android.animation.ObjectAnimator;
 import android.content.SharedPreferences;
 import android.content.res.AssetManager;
 import android.graphics.drawable.Drawable;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.WindowManager;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.PopupWindow;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import java.io.BufferedReader;
@@ -39,6 +49,9 @@ public class Quick extends AppCompatActivity {
     public int purplei;
     public int greeni;
     public int orangei;
+
+    public boolean isopened;
+    public int tabloc;
 
     public String Ques;
     public String Ans;
@@ -79,7 +92,10 @@ public class Quick extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quick);
-
+        View dimOver = findViewById(R.id.dim);
+        dimOver.setVisibility(View.GONE);
+        dimOver = findViewById(R.id.highlight);
+        dimOver.setVisibility(View.GONE);
         try {
             if(Globs.loadedQSet){
                 Globs.blueFile.close();
@@ -179,6 +195,8 @@ public class Quick extends AppCompatActivity {
         catch(IOException e) {
 
         }
+        isopened = false;
+        tabloc = 0;
         Ques = "";
         Ans = "";
         Random r = new Random();
@@ -213,6 +231,33 @@ public class Quick extends AppCompatActivity {
                 prevCard();
             }
         });
+        final View imageButton4 = findViewById(R.id.dim);
+        imageButton4.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                if(isopened){
+                    View v = findViewById(R.id.category);
+                    ObjectAnimator mover = ObjectAnimator.ofFloat(v, "translationX", 480, 0);
+                    mover.start();
+                    isopened = false;
+
+                    v = findViewById(R.id.dim);
+                    v.setVisibility(View.GONE);
+                    //v = findViewById(R.id.category);
+                    //v.setEnabled(false);
+                    //v.setVisibility(View.GONE);
+                    v = findViewById(R.id.card);
+                    v.setEnabled(true);
+                    v = findViewById(R.id.prev);
+                    v.setEnabled(true);
+                    v = findViewById(R.id.next);
+                    v.setEnabled(true);
+
+                    v = findViewById(R.id.highlight);
+                    v.setVisibility(View.GONE);
+                }
+            }
+        });
         final View imageButton3 = findViewById(R.id.card);
         imageButton3.setOnTouchListener(new View.OnTouchListener(){
             @Override
@@ -234,6 +279,149 @@ public class Quick extends AppCompatActivity {
                 return false;
             }
         });
+        final View imageButton5 = findViewById(R.id.category);
+        imageButton5.setOnTouchListener(new View.OnTouchListener(){
+            @Override
+            public boolean onTouch(View view, MotionEvent event){
+                if(isopened) {
+                    if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                        int[] viewCoords = new int[2];
+                        view.getLocationOnScreen(viewCoords);
+                        int touchX = (int) event.getX();
+                        int touchY = (int) event.getY();
+                        int imageX = touchX - viewCoords[0];
+                        int imageY = touchY - viewCoords[1];
+                        int width = view.getMeasuredWidth() + 320;
+                        int height = view.getMeasuredHeight();
+                        if(imageX >= width){
+                            tabloc = 0;
+                        }
+                        else if(imageX <= width - 320){
+                            tabloc = 8;
+                        }
+                        else if((imageY <= ((double)height*1/7)) && (imageY >= 20)){
+                            tabloc = 1;
+                        }
+                        else if(imageY <= ((double)height*2/7)){
+                            tabloc = 2;
+                        }
+                        else if(imageY <= ((double)height*3/7) - 50){
+                            tabloc = 3;
+                        }
+                        else if(imageY <= ((double)height*4/7) - 60){
+                            tabloc = 4;
+                        }
+                        else if(imageY <= ((double)height*5/7) - 100){
+                            tabloc = 5;
+                        }
+                        else if(imageY <= ((double)height*6/7) - 130){
+                            tabloc = 6;
+                        }
+                        else if(imageY <= ((double)height*7/7 - 150)){
+                            tabloc = 7;
+                        }
+                        return false;
+                    }
+                }
+                return false;
+            }
+        });
+        imageButton5.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                if(isopened) {
+                    if(tabloc == 0) {
+                        View v = findViewById(R.id.category);
+                        ObjectAnimator mover = ObjectAnimator.ofFloat(v, "translationX", 480, 0);
+                        mover.start();
+                        isopened = false;
+
+                        v = findViewById(R.id.dim);
+                        v.setVisibility(View.GONE);
+                        //v = findViewById(R.id.category);
+                        //v.setEnabled(false);
+                        //v.setVisibility(View.GONE);
+                        v = findViewById(R.id.card);
+                        v.setEnabled(true);
+                        v = findViewById(R.id.prev);
+                        v.setEnabled(true);
+                        v = findViewById(R.id.next);
+                        v.setEnabled(true);
+
+                        v = findViewById(R.id.highlight);
+                        v.setVisibility(View.GONE);
+                    }
+                    else if(tabloc == 1){
+                        MoveHighlight(BLUE);
+                        CatChange(BLUE);
+                    }
+                    else if(tabloc == 2){
+                        MoveHighlight(PINK);
+                        CatChange(PINK);
+                    }
+                    else if(tabloc == 3){
+                        MoveHighlight(YELLOW);
+                        CatChange(YELLOW);
+                    }
+                    else if(tabloc == 4){
+                        MoveHighlight(PURPLE);
+                        CatChange(PURPLE);
+                    }
+                    else if(tabloc == 5){
+                        MoveHighlight(GREEN);
+                        CatChange(GREEN);
+                    }
+                    else if(tabloc == 6){
+                        MoveHighlight(ORANGE);
+                        CatChange(ORANGE);
+                    }
+                    else if(tabloc == 7){
+                        MoveHighlight(RANDOM);
+                        CatChange(RANDOM);
+                    }
+                }
+                else{
+                    isopened = true;
+                    View v = findViewById(R.id.dim);
+                    v.setVisibility(View.VISIBLE);
+                    //v = findViewById(R.id.category);
+                    //v.setEnabled(true);
+                    //v.setVisibility(View.VISIBLE);
+                    v = findViewById(R.id.card);
+                    v.setEnabled(false);
+                    v = findViewById(R.id.prev);
+                    v.setEnabled(false);
+                    v = findViewById(R.id.next);
+                    v.setEnabled(false);
+
+                    v = findViewById(R.id.category);
+                    ObjectAnimator mover = ObjectAnimator.ofFloat(v, "translationX", 0, 480);
+                    mover.start();
+                    mover.addListener(new Animator.AnimatorListener() {
+                        @Override
+                        public void onAnimationStart(Animator animator) {
+
+                        }
+
+                        @Override
+                        public void onAnimationEnd(Animator animator) {
+                            View v = findViewById(R.id.highlight);
+                            v.setVisibility(View.VISIBLE);
+                        }
+
+                        @Override
+                        public void onAnimationCancel(Animator animator) {
+
+                        }
+
+                        @Override
+                        public void onAnimationRepeat(Animator animator) {
+
+                        }
+                    });
+                }
+            }
+        });
     }
 
     protected void pushToLineNum(int line, BufferedReader f){
@@ -248,6 +436,49 @@ public class Quick extends AppCompatActivity {
 
             }
         }
+    }
+
+    protected void MoveHighlight(Category c){
+        if(cat == c){
+            return;
+        }
+        ImageView s = (ImageView) findViewById(R.id.highlight);
+        switch(c){
+            case BLUE:
+                s.setY(130);
+                break;
+            case PINK:
+                s.setY(390);
+                break;
+            case YELLOW:
+                s.setY(668);
+                break;
+            case PURPLE:
+                s.setY(940);
+                break;
+            case GREEN:
+                s.setY(1195);
+                break;
+            case ORANGE:
+                s.setY(1450);
+                break;
+            case RANDOM:
+                s.setY(1700);
+                break;
+        }
+    }
+
+    protected void CatChange(Category c){
+        if(cat == c){
+            return;
+        }
+        cat = c;
+        Qcat = null;
+        Ques = "";
+        Ans = "";
+        qstack = new SizedStack<qaset>(15);
+        popstack = new SizedStack<qaset>(15);
+        newCard();
     }
 
     protected void prevCard(){

@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/quickgame"
     android:background="@color/colorPrimary"
     tools:context="com.trivial_pursuit.trivialpursuit.Quick">
     <ImageView
@@ -51,4 +52,27 @@
         android:layout_alignTop="@+id/next"
         android:layout_alignLeft="@+id/questionTxt"
         android:layout_alignStart="@+id/questionTxt" />
+    <com.trivial_pursuit.trivialpursuit.CustomOverlay
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/dim"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+    <ImageView
+        android:id="@+id/category"
+        android:layout_width="290dp"
+        android:layout_height="600dp"
+        android:src="@drawable/cat"
+        android:clipToPadding="false"
+        android:layout_marginLeft="-265dp"/>
+    <ImageView
+        android:id="@+id/highlight"
+        android:layout_width="82dp"
+        android:layout_height="82dp"
+        android:src="@drawable/cathighlight"
+        android:clipToPadding="false"
+        android:layout_marginLeft="45dp"
+        android:layout_marginTop="485dp"/>
+
 </RelativeLayout>
