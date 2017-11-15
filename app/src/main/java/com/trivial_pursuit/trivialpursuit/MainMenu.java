@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.LinearInterpolator;
@@ -13,6 +14,8 @@ import java.io.IOException;
 
 public class MainMenu extends AppCompatActivity {
     private SoundPlayer sound;
+
+    public boolean continueMusic;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,8 +33,23 @@ public class MainMenu extends AppCompatActivity {
         rotateAnimation.setRepeatCount(Animation.INFINITE);
         Globs.loadedQSet = false;
         Globs.isQuick = false;
+        continueMusic = false;
 
         findViewById(R.id.imageView1).startAnimation(rotateAnimation);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        if (!continueMusic) {
+            MusicManager.pause();
+        }
+    }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        continueMusic = false;
+        MusicManager.start(this, MusicManager.MUSIC_MENU);
     }
 
     @Override

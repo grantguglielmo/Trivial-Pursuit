@@ -7,6 +7,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -23,9 +24,11 @@ import static com.trivial_pursuit.trivialpursuit.Globs.Colors.YELLOW;
 
 public class LocalPlayColorSel extends AppCompatActivity {
     int player;
+    public boolean continueMusic;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        continueMusic = true;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_local_play_colorsel);
         Globs.p1 = null;
@@ -268,6 +271,31 @@ public class LocalPlayColorSel extends AppCompatActivity {
             Drawable icon = convertDrawableToGrayScale(originalIcon);
             myBtn.setImageDrawable(icon);
         }
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        if (!continueMusic) {
+            MusicManager.pause();
+        }
+    }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        continueMusic = false;
+        MusicManager.start(this, MusicManager.MUSIC_MENU);
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event)
+    {
+        //replaces the default 'Back' button action
+        if(keyCode==KeyEvent.KEYCODE_BACK)
+        {
+            continueMusic = true;
+        }
+        return super.onKeyDown(keyCode, event);
     }
 
     @Override
