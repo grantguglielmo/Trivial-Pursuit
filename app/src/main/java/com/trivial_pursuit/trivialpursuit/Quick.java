@@ -9,6 +9,7 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Gravity;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -42,6 +43,7 @@ public class Quick extends AppCompatActivity {
         RANDOM, BLUE, PINK, YELLOW, PURPLE, GREEN, ORANGE
     }
     public Category cat;
+    public boolean continueMusic;
 
     public int bluei;
     public int pinki;
@@ -90,6 +92,7 @@ public class Quick extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        continueMusic = true;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quick);
         View dimOver = findViewById(R.id.dim);
@@ -854,6 +857,31 @@ public class Quick extends AppCompatActivity {
 
         }
         super.onDestroy();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        if (!continueMusic) {
+            MusicManager.pause();
+        }
+    }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        continueMusic = false;
+        MusicManager.start(this, MusicManager.MUSIC_MENU);
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event)
+    {
+        //replaces the default 'Back' button action
+        if(keyCode==KeyEvent.KEYCODE_BACK)
+        {
+            continueMusic = true;
+        }
+        return super.onKeyDown(keyCode, event);
     }
 
     @Override
