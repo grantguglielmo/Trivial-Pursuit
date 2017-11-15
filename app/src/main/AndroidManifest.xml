@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainMenu">
+        <activity android:name=".MainMenu"
+            android:screenOrientation="portrait" >
+        <!--<activity android:name=".MainMenu">-->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -22,6 +24,7 @@
         <activity android:name=".LocalPlayGame"></activity>
         <activity android:name=".Quick"></activity>
         <activity android:name=".Settings"></activity>
+
     </application>
 
 </manifest>
