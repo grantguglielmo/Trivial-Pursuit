@@ -1,5 +1,7 @@
 package com.trivial_pursuit.trivialpursuit;
 
+import android.media.MediaPlayer;
+
 import java.io.BufferedReader;
 import java.io.InputStream;
 
@@ -46,4 +48,13 @@ public class Globs {
     static Colors p4;
     static Colors p5;
     static Colors p6;
+
+    // settings stuff
+    static int timerval;
+    static int soundvalue;
+    static BackgroundSoundService bg;
+    static int getcurrentposition;
+    static MediaPlayer player;
+    //static MediaPlayer mp;
+
 }

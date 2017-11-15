@@ -2,6 +2,8 @@ package com.trivial_pursuit.trivialpursuit;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.media.AudioManager;
+import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -12,6 +14,7 @@ import android.view.animation.RotateAnimation;
 import java.io.IOException;
 
 public class MainMenu extends AppCompatActivity {
+    private SoundPlayer sound;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +32,24 @@ public class MainMenu extends AppCompatActivity {
         Globs.isQuick = false;
 
         findViewById(R.id.imageView1).startAnimation(rotateAnimation);
+
+        sound = new SoundPlayer(this);
+        //Globs.bg = new BackgroundSoundService();
+        Intent svc=new Intent(this, BackgroundSoundService.class);
+        startService(svc);
+//        setVolumeControlStream(AudioManager.STREAM_MUSIC);
+//        Globs.mp = MediaPlayer.create(this, R.raw.audio);
+//        Globs.mp.setLooping(true);
+    }
+
+    @Override
+    protected void onResume(){
+        super.onResume();
+    }
+
+    @Override
+    protected void onStop(){
+        super.onStop();
     }
 
     @Override
@@ -56,20 +77,34 @@ public class MainMenu extends AppCompatActivity {
         catch(IOException e){
 
         }
+        //Globs.bg.onDestroy();
         super.onDestroy();
     }
+
+//    @Override
+//    public void onBackPressed()
+//    {
+//        super.onBackPressed();
+//    }
+//
+//    @Override
+//    public void onUserLeaveHint(){
+//        super.onUserLeaveHint();
+//    }
 
     /** Called when the user clicks the "Local Play" button */
     public void startLocal(View view) {
         Globs.isQuick = false;
         Intent intent = new Intent(this, LocalPlayQSet.class);
         startActivity(intent);
+        sound.playtapsound();
     }
 
     public void startQuick (View view) {
         Globs.isQuick = true;
         Intent intent = new Intent(this, LocalPlayQSet.class);
         startActivity(intent);
+        sound.playtapsound();
     }
 
     public void startSettings(View view){

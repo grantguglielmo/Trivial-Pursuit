@@ -11,38 +11,42 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 
 public class Settings extends AppCompatActivity {
-    //golbal timer value
-    int timerval;
-    //global song on already
-    boolean songon = false;
+
+
     // soundseekbar
     private SeekBar volumeSeekbar = null;
     private AudioManager audioManager = null;
+    //timerseekbar
     SeekBar sb;
     TextView valuetxt;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
 
-        setVolumeControlStream(AudioManager.STREAM_MUSIC);
+
+
+
+        //setVolumeControlStream(AudioManager.STREAM_MUSIC);
         initControls();
-        final MediaPlayer mp = MediaPlayer.create(this, R.raw.audio);
-        if(!songon) {
-            mp.start();
-        }
+        //final MediaPlayer mp = MediaPlayer.create(this, R.raw.audio);
         sb = (SeekBar) findViewById(R.id.seekBar2);
         valuetxt = (TextView) findViewById(R.id.textView3);
+
+
+
+
         sb.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromuser) {
                 //global value for timervalue in minutes
-            timerval =1;
-             timerval = (int)(progress/14.28);
-                if(timerval<1){
-                    timerval=1;
+            Globs.timerval =1;
+             Globs.timerval = (int)(progress/14.28);
+                if(Globs.timerval<1){
+                    Globs.timerval=1;
                 }
-            valuetxt.setText(String.valueOf(timerval));
+            valuetxt.setText(String.valueOf(Globs.timerval));
             }
 
             @Override
@@ -86,9 +90,10 @@ public class Settings extends AppCompatActivity {
 
                 @Override
                 public void onProgressChanged(SeekBar arg0, int progress, boolean arg2)
-                {
+                {   Globs.soundvalue = progress;
                     audioManager.setStreamVolume(AudioManager.STREAM_MUSIC,
                             progress, 0);
+
                 }
             });
         }
@@ -97,5 +102,6 @@ public class Settings extends AppCompatActivity {
             e.printStackTrace();
         }
     }
+
 }
 

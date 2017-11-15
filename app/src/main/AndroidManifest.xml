@@ -3,6 +3,7 @@
     package="com.trivial_pursuit.trivialpursuit">
 
     <application
+
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -22,6 +23,7 @@
         <activity android:name=".LocalPlayGame"></activity>
         <activity android:name=".Quick"></activity>
         <activity android:name=".Settings"></activity>
+
     </application>
 
 </manifest>
