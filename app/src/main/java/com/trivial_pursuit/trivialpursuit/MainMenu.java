@@ -56,6 +56,7 @@ public class MainMenu extends AppCompatActivity {
         catch(IOException e){
 
         }
+
         super.onDestroy();
     }
 

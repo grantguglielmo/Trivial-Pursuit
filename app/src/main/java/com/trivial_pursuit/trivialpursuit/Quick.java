@@ -6,6 +6,7 @@ import android.graphics.drawable.Drawable;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -16,9 +17,15 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.Random;
+import java.util.Stack;
 
 import static com.trivial_pursuit.trivialpursuit.Quick.Category.BLUE;
+import static com.trivial_pursuit.trivialpursuit.Quick.Category.GREEN;
+import static com.trivial_pursuit.trivialpursuit.Quick.Category.ORANGE;
+import static com.trivial_pursuit.trivialpursuit.Quick.Category.PINK;
+import static com.trivial_pursuit.trivialpursuit.Quick.Category.PURPLE;
 import static com.trivial_pursuit.trivialpursuit.Quick.Category.RANDOM;
+import static com.trivial_pursuit.trivialpursuit.Quick.Category.YELLOW;
 
 public class Quick extends AppCompatActivity {
     public enum Category{
@@ -35,6 +42,38 @@ public class Quick extends AppCompatActivity {
 
     public String Ques;
     public String Ans;
+    public Category Qcat;
+
+    public class qaset{
+        public String Q;
+        public String A;
+        public Category C;
+
+        public qaset(String a, String b, Category d){
+            Q = a;
+            A = b;
+            C = d;
+        }
+    }
+    public class SizedStack<T> extends Stack<T> {
+        private int maxSize;
+
+        public SizedStack(int size) {
+            super();
+            this.maxSize = size;
+        }
+
+        @Override
+        public T push(T object) {
+            //If the stack is too big, remove elements until it's the right size.
+            while (this.size() >= maxSize) {
+                this.remove(0);
+            }
+            return super.push(object);
+        }
+    }
+    SizedStack<qaset> qstack;
+    SizedStack<qaset> popstack;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -156,12 +195,43 @@ public class Quick extends AppCompatActivity {
         pushToLineNum(greeni, Globs.greenFile);
         pushToLineNum(orangei, Globs.orangeFile);
         cat = RANDOM;
+        Qcat = null;
+        qstack = new SizedStack<qaset>(15);
+        popstack = new SizedStack<qaset>(15);
         newCard();
-        final View imageButton = findViewById(R.id.card);
+        final View imageButton = findViewById(R.id.next);
         imageButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
                 newCard();
+            }
+        });
+        final View imageButton2 = findViewById(R.id.prev);
+        imageButton2.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                prevCard();
+            }
+        });
+        final View imageButton3 = findViewById(R.id.card);
+        imageButton3.setOnTouchListener(new View.OnTouchListener(){
+            @Override
+            public boolean onTouch(View view, MotionEvent event) {
+                TextView tv1 = null;
+                tv1 = (TextView) findViewById(R.id.questionTxt);
+                if(event.getAction() == MotionEvent.ACTION_DOWN){
+                    tv1.setText("Answer: " + Ans);
+                    return true;
+                }
+                if(event.getAction() == MotionEvent.ACTION_MOVE){
+                    tv1.setText("Answer: " + Ans);
+                    return true;
+                }
+                if(event.getAction() == MotionEvent.ACTION_UP){
+                    tv1.setText(Ques);
+                    return true;
+                }
+                return false;
             }
         });
     }
@@ -180,9 +250,83 @@ public class Quick extends AppCompatActivity {
         }
     }
 
+    protected void prevCard(){
+        if(qstack.size() == 0){
+            return;
+        }
+        popstack.push(new qaset(Ques, Ans, Qcat));
+        qaset prev = qstack.pop();
+        Ques = prev.Q;
+        Ans = prev.A;
+        Qcat = prev.C;
+        TextView tv1 = null;
+        tv1 = (TextView) findViewById(R.id.questionTxt);
+        tv1.setText(Ques);
+        switch(prev.C){
+            case BLUE:
+                ((ImageView)findViewById(R.id.card)).setImageResource(R.drawable.trivialcardblue);
+                break;
+            case PINK:
+                ((ImageView)findViewById(R.id.card)).setImageResource(R.drawable.trivialcardpink);
+                break;
+            case YELLOW:
+                ((ImageView)findViewById(R.id.card)).setImageResource(R.drawable.trivialcardyellow);
+                break;
+            case PURPLE:
+                ((ImageView)findViewById(R.id.card)).setImageResource(R.drawable.trivialcardpurple);
+                break;
+            case GREEN:
+                ((ImageView)findViewById(R.id.card)).setImageResource(R.drawable.trivialcardgreen);
+                break;
+            case ORANGE:
+                ((ImageView)findViewById(R.id.card)).setImageResource(R.drawable.trivialcardorange);
+                break;
+        }
+    }
+
+    protected void popCard(){
+        qaset prev = popstack.pop();
+        Ques = prev.Q;
+        Ans = prev.A;
+        Qcat = prev.C;
+        TextView tv1 = null;
+        tv1 = (TextView) findViewById(R.id.questionTxt);
+        tv1.setText(Ques);
+        switch(prev.C){
+            case BLUE:
+                ((ImageView)findViewById(R.id.card)).setImageResource(R.drawable.trivialcardblue);
+                break;
+            case PINK:
+                ((ImageView)findViewById(R.id.card)).setImageResource(R.drawable.trivialcardpink);
+                break;
+            case YELLOW:
+                ((ImageView)findViewById(R.id.card)).setImageResource(R.drawable.trivialcardyellow);
+                break;
+            case PURPLE:
+                ((ImageView)findViewById(R.id.card)).setImageResource(R.drawable.trivialcardpurple);
+                break;
+            case GREEN:
+                ((ImageView)findViewById(R.id.card)).setImageResource(R.drawable.trivialcardgreen);
+                break;
+            case ORANGE:
+                ((ImageView)findViewById(R.id.card)).setImageResource(R.drawable.trivialcardorange);
+                break;
+        }
+    }
+
     protected void newCard(){
+        if(!Ques.equals("")){
+            qstack.push(new qaset(Ques, Ans, Qcat));
+        }
+        if(popstack.size() != 0){
+            popCard();
+            return;
+        }
         Random r = new Random();
         TextView tv1 = null;
+        if(cat != RANDOM){
+            Qcat = cat;
+        }
         switch(cat){
             case RANDOM:
                 int catRand = r.nextInt(6);
@@ -202,6 +346,7 @@ public class Quick extends AppCompatActivity {
                             }
                             Ques = Globs.blueFile.readLine();
                             Ans = Globs.blueFile.readLine();
+                            Qcat = BLUE;
                         }
                         catch(IOException e){
 
@@ -224,6 +369,7 @@ public class Quick extends AppCompatActivity {
                             }
                             Ques = Globs.pinkFile.readLine();
                             Ans = Globs.pinkFile.readLine();
+                            Qcat = PINK;
                         }
                         catch(IOException e){
 
@@ -246,6 +392,7 @@ public class Quick extends AppCompatActivity {
                             }
                             Ques = Globs.yellowFile.readLine();
                             Ans = Globs.yellowFile.readLine();
+                            Qcat = YELLOW;
                         }
                         catch(IOException e){
 
@@ -268,6 +415,7 @@ public class Quick extends AppCompatActivity {
                             }
                             Ques = Globs.purpleFile.readLine();
                             Ans = Globs.purpleFile.readLine();
+                            Qcat = PURPLE;
                         }
                         catch(IOException e){
 
@@ -290,6 +438,7 @@ public class Quick extends AppCompatActivity {
                             }
                             Ques = Globs.greenFile.readLine();
                             Ans = Globs.greenFile.readLine();
+                            Qcat = GREEN;
                         }
                         catch(IOException e){
 
@@ -312,6 +461,7 @@ public class Quick extends AppCompatActivity {
                             }
                             Ques = Globs.orangeFile.readLine();
                             Ans = Globs.orangeFile.readLine();
+                            Qcat = ORANGE;
                         }
                         catch(IOException e){
 
@@ -454,7 +604,6 @@ public class Quick extends AppCompatActivity {
                 tv1.setText(Ques);
                 break;
         }
-
     }
 
     @Override

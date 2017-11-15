@@ -125,12 +125,5 @@ public class LocalPlayGame extends AppCompatActivity {
             Globs.greenIdx = Integer.parseInt(mPrefs.getString("green", ""));
             Globs.orangeIdx = Integer.parseInt(mPrefs.getString("orange", ""));
         }
-        TextView tv1 = (TextView) findViewById(R.id.textLineNum);
-        tv1.setText("blue:"+Globs.blueIdx+", "+Globs.blueMax+"\n"
-                +"pink:"+Globs.pinkIdx+", "+Globs.pinkMax+"\n"
-                +"yellow:"+Globs.yellowIdx+", "+Globs.yellowMax+"\n"
-                +"purple:"+Globs.purpleIdx+", "+Globs.purpleMax+"\n"
-                +"green:"+Globs.greenIdx+", "+Globs.greenMax+"\n"
-                +"orange:"+Globs.orangeIdx+", "+Globs.orangeMax);
     }
 }
