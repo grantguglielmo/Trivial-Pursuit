@@ -12,11 +12,14 @@ import android.view.animation.RotateAnimation;
 import java.io.IOException;
 
 public class MainMenu extends AppCompatActivity {
+    private SoundPlayer sound;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu);
+
+        sound = new SoundPlayer(this);
 
         RotateAnimation rotateAnimation = new RotateAnimation(0, 360f,
                 Animation.RELATIVE_TO_SELF, 0.5f,
@@ -65,12 +68,14 @@ public class MainMenu extends AppCompatActivity {
         Globs.isQuick = false;
         Intent intent = new Intent(this, LocalPlayQSet.class);
         startActivity(intent);
+        sound.playtapsound();
     }
 
     public void startQuick (View view) {
         Globs.isQuick = true;
         Intent intent = new Intent(this, LocalPlayQSet.class);
         startActivity(intent);
+        sound.dicerollsound();
     }
 
     public void startSettings(View view){

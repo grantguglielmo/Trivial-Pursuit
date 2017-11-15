@@ -14,7 +14,6 @@ public class Settings extends AppCompatActivity {
     //golbal timer value
     int timerval;
     //global song on already
-    boolean songon = false;
     // soundseekbar
     private SeekBar volumeSeekbar = null;
     private AudioManager audioManager = null;
@@ -24,13 +23,6 @@ public class Settings extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
-
-        setVolumeControlStream(AudioManager.STREAM_MUSIC);
-        initControls();
-        final MediaPlayer mp = MediaPlayer.create(this, R.raw.audio);
-        if(!songon) {
-            mp.start();
-        }
         sb = (SeekBar) findViewById(R.id.seekBar2);
         valuetxt = (TextView) findViewById(R.id.textView3);
         sb.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
@@ -56,6 +48,7 @@ public class Settings extends AppCompatActivity {
             }
         });
     }
+
 
     public void Backbutton (View view) {
         finish();
