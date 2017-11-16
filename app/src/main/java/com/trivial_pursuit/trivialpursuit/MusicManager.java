@@ -18,8 +18,8 @@ public class MusicManager {
     private static int currentMusic = -1;
     private static int previousMusic = -1;
 
-    public static float getMusicVolume(Context context) {
-        return 1;
+    public static float getMusicVolume() {
+        return Globs.vol;
     }
 
     public static void start(Context context, int music) {
@@ -51,12 +51,12 @@ public class MusicManager {
             }
         } else {
             if (music == MUSIC_MENU) {
-                mp = MediaPlayer.create(context, R.raw.audio);
+                mp = MediaPlayer.create(context, R.raw.audio0);
             } else {
                 return;
             }
             players.put(music, mp);
-            float volume = getMusicVolume(context);
+            float volume = getMusicVolume();
             mp.setVolume(volume, volume);
             if (mp == null) {
             } else {
@@ -83,9 +83,9 @@ public class MusicManager {
         currentMusic = -1;
     }
 
-    public static void updateVolumeFromPrefs(Context context) {
+    public static void updateVolumeFromPrefs() {
         try {
-            float volume = getMusicVolume(context);
+            float volume = getMusicVolume();
             Collection mps = players.values();
             for (MediaPlayer p : (Collection<MediaPlayer>)mps) {
                 p.setVolume(volume, volume);

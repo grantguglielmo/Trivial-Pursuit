@@ -86,6 +86,7 @@ public class LocalPlayNumP extends AppCompatActivity implements AdapterView.OnIt
         String text = mySpinner.getSelectedItem().toString();
         Globs.playerCnt = Integer.parseInt(text);
         Intent intent = new Intent(this, LocalPlayColorSel.class);
+        Globs.sound.playtapsound();
         startActivity(intent);
     }
 }

@@ -20,10 +20,12 @@ public class LocalPlayQSet extends AppCompatActivity {
         Globs.qsetPath = "Questions/Master/";
         if(Globs.isQuick){
             Intent intent = new Intent(this, Quick.class);
+            Globs.sound.playtapsound();
             startActivity(intent);
         }
         else {
             Intent intent = new Intent(this, LocalPlayNumP.class);
+            Globs.sound.playtapsound();
             startActivity(intent);
         }
     }
@@ -57,10 +59,12 @@ public class LocalPlayQSet extends AppCompatActivity {
         Globs.qsetPath = "Questions/Custom/";
         if(Globs.isQuick){
             Intent intent = new Intent(this, Quick.class);
+            Globs.sound.playtapsound();
             startActivity(intent);
         }
         else {
             Intent intent = new Intent(this, LocalPlayNumP.class);
+            Globs.sound.playtapsound();
             startActivity(intent);
         }
     }

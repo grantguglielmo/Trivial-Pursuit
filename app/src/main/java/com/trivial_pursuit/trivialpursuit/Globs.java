@@ -16,6 +16,12 @@ public class Globs {
     static int playerCnt;
 
     static boolean isQuick;
+    static float vol;
+    static int timerval;
+    static boolean timeron;
+    static float volFX;
+
+    static SoundPlayer sound;
 
     static boolean loadedQSet;
 

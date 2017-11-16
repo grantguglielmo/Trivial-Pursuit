@@ -38,12 +38,12 @@ public class SoundPlayer {
 
     public void playtapsound(){
         //play(int soundID, float leftVolume, float rightVolume, int priority, int loop, float rate)
-        soundPool.play(tapsound,1.0f,1.0f,1,0,1.0f);
+        soundPool.play(tapsound,Globs.volFX,Globs.volFX,1,0,1.0f);
 
 
     }
     public void dicerollsound(){
-        soundPool.play(dicerollsound,1.0f,1.0f,1,0,1.0f);
+        soundPool.play(dicerollsound,Globs.volFX,Globs.volFX,1,0,1.0f);
 
 
     }

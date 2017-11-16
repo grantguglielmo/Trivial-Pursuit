@@ -224,6 +224,7 @@ public class Quick extends AppCompatActivity {
         imageButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
+                Globs.sound.playtapsound();
                 newCard();
             }
         });
@@ -231,6 +232,7 @@ public class Quick extends AppCompatActivity {
         imageButton2.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
+                Globs.sound.playtapsound();
                 prevCard();
             }
         });

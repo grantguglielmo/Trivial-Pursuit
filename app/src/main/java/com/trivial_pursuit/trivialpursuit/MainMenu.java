@@ -13,17 +13,19 @@ import android.view.animation.RotateAnimation;
 import java.io.IOException;
 
 public class MainMenu extends AppCompatActivity {
-    private SoundPlayer sound;
-
     public boolean continueMusic;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        SharedPreferences settings = getSharedPreferences("Settings", 0);
+        Globs.vol = Float.parseFloat(settings.getString("volume", "3"));
+        Globs.volFX = Float.parseFloat(settings.getString("volumefx", "3"));
+        Globs.timerval = Integer.parseInt(settings.getString("timerval", "3"));
+        Globs.timeron = Boolean.parseBoolean(settings.getString("timeron", "true"));
+
         setContentView(R.layout.activity_main_menu);
-
-        sound = new SoundPlayer(this);
-
+        Globs.sound = new SoundPlayer(this);
         RotateAnimation rotateAnimation = new RotateAnimation(0, 360f,
                 Animation.RELATIVE_TO_SELF, 0.5f,
                 Animation.RELATIVE_TO_SELF, 0.5f);
@@ -77,7 +79,6 @@ public class MainMenu extends AppCompatActivity {
         catch(IOException e){
 
         }
-
         super.onDestroy();
     }
 
@@ -86,18 +87,19 @@ public class MainMenu extends AppCompatActivity {
         Globs.isQuick = false;
         Intent intent = new Intent(this, LocalPlayQSet.class);
         startActivity(intent);
-        sound.playtapsound();
+        Globs.sound.playtapsound();
     }
 
     public void startQuick (View view) {
         Globs.isQuick = true;
         Intent intent = new Intent(this, LocalPlayQSet.class);
         startActivity(intent);
-        sound.dicerollsound();
+        Globs.sound.playtapsound();
     }
 
     public void startSettings(View view){
         Intent intent = new Intent(this, Settings.class);
         startActivity(intent);
+        Globs.sound.playtapsound();
     }
 }
