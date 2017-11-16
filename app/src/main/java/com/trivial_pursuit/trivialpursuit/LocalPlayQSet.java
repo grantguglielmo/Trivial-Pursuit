@@ -41,7 +41,12 @@ public class LocalPlayQSet extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         continueMusic = false;
-        MusicManager.start(this, MusicManager.MUSIC_MENU);
+        MusicManager.start(this, MusicManager.MUSIC_MENU, true);
+    }
+
+    public void Backbutt (View view) {
+        Globs.sound.playtapsound();
+        onBackPressed();
     }
 
     @Override

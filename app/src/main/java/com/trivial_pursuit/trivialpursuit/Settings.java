@@ -119,18 +119,6 @@ public class Settings extends AppCompatActivity {
     }
 
     @Override
-    protected  void onDestroy(){
-        SharedPreferences settings = getSharedPreferences("Settings", 0);
-        SharedPreferences.Editor setEditor = settings.edit();
-        setEditor.putString("volume", Float.toString(Globs.vol));
-        setEditor.putString("volumefx", Float.toString(Globs.volFX));
-        setEditor.putString("timeron", Boolean.toString(Globs.timeron));
-        setEditor.putString("timerval", Integer.toString(Globs.timerval));
-        setEditor.commit();
-        super.onDestroy();
-    }
-
-    @Override
     public boolean onKeyDown(int keyCode, KeyEvent event)
     {
         //replaces the default 'Back' button action
@@ -141,9 +129,21 @@ public class Settings extends AppCompatActivity {
         return super.onKeyDown(keyCode, event);
     }
 
+    public void Backbutt (View view) {
+        Globs.sound.playtapsound();
+        onBackPressed();
+    }
+
     public void Backbutton (View view) {
         Globs.sound.playtapsound();
-        finish();
+        SharedPreferences settings = getSharedPreferences("Settings", 0);
+        SharedPreferences.Editor setEditor = settings.edit();
+        setEditor.putString("volume", Float.toString(Globs.vol));
+        setEditor.putString("volumefx", Float.toString(Globs.volFX));
+        setEditor.putString("timeron", Boolean.toString(Globs.timeron));
+        setEditor.putString("timerval", Integer.toString(Globs.timerval));
+        setEditor.commit();
+        onBackPressed();
     }
 
     private void initControls()

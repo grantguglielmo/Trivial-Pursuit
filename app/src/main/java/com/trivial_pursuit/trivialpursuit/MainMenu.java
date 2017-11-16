@@ -10,13 +10,17 @@ import android.view.animation.Animation;
 import android.view.animation.LinearInterpolator;
 import android.view.animation.RotateAnimation;
 
+import com.plattysoft.leonids.ParticleSystem;
+
 import java.io.IOException;
 
 public class MainMenu extends AppCompatActivity {
     public boolean continueMusic;
+    public int easter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        easter = 0;
         super.onCreate(savedInstanceState);
         SharedPreferences settings = getSharedPreferences("Settings", 0);
         Globs.vol = Float.parseFloat(settings.getString("volume", "3"));
@@ -80,6 +84,15 @@ public class MainMenu extends AppCompatActivity {
 
         }
         super.onDestroy();
+    }
+
+    public void secretbutton(View view){
+        easter++;
+        if(easter == 7){
+            new ParticleSystem(this, 1024, R.drawable.star_pink, 3000)
+                .setSpeedRange(0.2f, 0.5f)
+                .oneShot(view, 1024);
+        }
     }
 
     /** Called when the user clicks the "Local Play" button */

@@ -257,6 +257,8 @@ public class Quick extends AppCompatActivity {
                     v.setEnabled(true);
                     v = findViewById(R.id.next);
                     v.setEnabled(true);
+                    v = findViewById(R.id.backbutton);
+                    v.setEnabled(true);
 
                     v = findViewById(R.id.highlight);
                     v.setVisibility(View.GONE);
@@ -301,7 +303,7 @@ public class Quick extends AppCompatActivity {
                         if(imageX >= width){
                             tabloc = 0;
                         }
-                        else if(imageX <= width - 320){
+                        else if((imageX <= width - 320) || (imageY < 20)){
                             tabloc = 8;
                         }
                         else if((imageY <= ((double)height*1/7)) && (imageY >= 20)){
@@ -352,6 +354,8 @@ public class Quick extends AppCompatActivity {
                         v.setEnabled(true);
                         v = findViewById(R.id.next);
                         v.setEnabled(true);
+                        v = findViewById(R.id.backbutton);
+                        v.setEnabled(true);
 
                         v = findViewById(R.id.highlight);
                         v.setVisibility(View.GONE);
@@ -397,6 +401,8 @@ public class Quick extends AppCompatActivity {
                     v = findViewById(R.id.prev);
                     v.setEnabled(false);
                     v = findViewById(R.id.next);
+                    v.setEnabled(false);
+                    v = findViewById(R.id.backbutton);
                     v.setEnabled(false);
 
                     v = findViewById(R.id.category);
@@ -872,7 +878,12 @@ public class Quick extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         continueMusic = false;
-        MusicManager.start(this, MusicManager.MUSIC_MENU);
+        MusicManager.start(this, MusicManager.MUSIC_QUICK, true);
+    }
+
+    public void Backbutt (View view) {
+        Globs.sound.playtapsound();
+        onBackPressed();
     }
 
     @Override

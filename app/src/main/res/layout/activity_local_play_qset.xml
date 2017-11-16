@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/qset"
-    android:background="@color/colorPrimary"
+    android:background="@drawable/background"
     tools:context="com.trivial_pursuit.trivialpursuit.LocalPlayQSet">
     <TextView
         android:id="@+id/text_view_id"
@@ -17,6 +17,13 @@
         android:layout_marginBottom="83dp"
         android:layout_above="@+id/buttonM"
         android:layout_centerHorizontal="true" />
+
+    <ImageView
+        android:id="@+id/backbutton"
+        android:layout_width="75dp"
+        android:layout_height="50dp"
+        android:onClick="Backbutt"
+        android:src="@drawable/backbut"/>
     <Button
         android:layout_width="50pt"
         android:layout_height="wrap_content"

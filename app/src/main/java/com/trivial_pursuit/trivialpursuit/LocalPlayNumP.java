@@ -77,6 +77,11 @@ public class LocalPlayNumP extends AppCompatActivity implements AdapterView.OnIt
         return super.onKeyDown(keyCode, event);
     }
 
+    public void Backbutt (View view) {
+        Globs.sound.playtapsound();
+        onBackPressed();
+    }
+
     public void onNothingSelected(AdapterView<?> parent) {
         Globs.playerCnt = 2;
     }

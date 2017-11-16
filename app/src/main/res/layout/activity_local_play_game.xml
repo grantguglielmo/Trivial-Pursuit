@@ -5,16 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/lpgame"
-    android:background="@color/colorPrimary"
+    android:background="@drawable/background"
     tools:context="com.trivial_pursuit.trivialpursuit.LocalPlayGame">
-    <TextView
-        android:id="@+id/textLineNum"
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:textSize="32sp"
-        android:text=""
-        android:textColor="@color/black_text"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="152dp" />
+    <ImageView
+        android:id="@+id/backbutton"
+        android:layout_width="75dp"
+        android:layout_height="50dp"
+        android:onClick="Backbutt"
+        android:src="@drawable/backbut"/>
 </RelativeLayout>

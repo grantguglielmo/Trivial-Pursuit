@@ -144,6 +144,11 @@ public class LocalPlayGame extends AppCompatActivity {
         MusicManager.start(this, MusicManager.MUSIC_MENU);
     }
 
+    public void Backbutt (View view) {
+        Globs.sound.playtapsound();
+        onBackPressed();
+    }
+
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event)
     {

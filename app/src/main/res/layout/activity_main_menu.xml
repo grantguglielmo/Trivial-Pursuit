@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/colorPrimary"
+    android:background="@drawable/background"
     tools:context="com.trivial_pursuit.trivialpursuit.MainMenu">
 
     <ImageView
@@ -13,6 +13,7 @@
         android:layout_width="300dp"
         android:layout_height="300dp"
         android:src="@drawable/trivialwheel2"
+        android:onClick="secretbutton"
         android:layout_below="@+id/Game_Title"
         android:layout_centerHorizontal="true" />
 

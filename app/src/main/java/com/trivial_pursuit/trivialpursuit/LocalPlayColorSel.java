@@ -42,6 +42,11 @@ public class LocalPlayColorSel extends AppCompatActivity {
         tv1.setText("Player " + player + " Select\n   Your Color");
     }
 
+    public void Backbutt (View view) {
+        Globs.sound.playtapsound();
+        onBackPressed();
+    }
+
     public static Drawable convertDrawableToGrayScale(Drawable drawable) {
         if (drawable == null)
             return null;

@@ -3,9 +3,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="@color/colorPrimary"
+    android:background="@drawable/background"
     android:layout_height="match_parent"
     tools:context="com.trivial_pursuit.trivialpursuit.Settings">
+    <ImageView
+        android:id="@+id/backbutton"
+        android:layout_width="75dp"
+        android:layout_height="50dp"
+        android:onClick="Backbutt"
+        android:src="@drawable/backbut"/>
 
     <SeekBar
 
@@ -22,7 +28,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="Sound"
+        android:text="Music"
         android:textColor="@color/black_text"
         android:layout_below="@+id/seekBar1"
         android:layout_centerHorizontal="true" />
