@@ -7,10 +7,19 @@
     android:id="@+id/lpgame"
     android:background="@drawable/background"
     tools:context="com.trivial_pursuit.trivialpursuit.LocalPlayGame">
-    <ImageView
-        android:id="@+id/backbutton"
-        android:layout_width="75dp"
-        android:layout_height="50dp"
-        android:onClick="Backbutt"
-        android:src="@drawable/backbut"/>
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/boardscroll">
+        <ImageView
+            android:id="@+id/board"
+            android:src="@drawable/board"
+            android:layout_width="700dp"
+            android:layout_height="7000dp"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:layout_gravity="center"
+            />
+
+    </ScrollView>
 </RelativeLayout>

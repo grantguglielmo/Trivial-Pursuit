@@ -10,13 +10,13 @@ public class LocalPlayQSet extends AppCompatActivity {
     public boolean continueMusic;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         continueMusic = true;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_local_play_qset);
     }
 
-    protected void onClickM(View v){
+    public void onClickM(View v){
         Globs.qsetPath = "Questions/Master/";
         if(Globs.isQuick){
             Intent intent = new Intent(this, Quick.class);
@@ -31,17 +31,22 @@ public class LocalPlayQSet extends AppCompatActivity {
     }
 
     @Override
-    protected void onPause() {
+    public void onPause() {
         super.onPause();
         if (!continueMusic) {
             MusicManager.pause();
         }
     }
     @Override
-    protected void onResume() {
+    public void onResume() {
         super.onResume();
         continueMusic = false;
         MusicManager.start(this, MusicManager.MUSIC_MENU, true);
+    }
+
+    public void roll(View view){
+        Intent intent = new Intent(this, Dice.class);
+        startActivity(intent);
     }
 
     public void Backbutt (View view) {
@@ -60,7 +65,7 @@ public class LocalPlayQSet extends AppCompatActivity {
         return super.onKeyDown(keyCode, event);
     }
 
-    protected void onClickC(View v){
+    public void onClickC(View v){
         Globs.qsetPath = "Questions/Custom/";
         if(Globs.isQuick){
             Intent intent = new Intent(this, Quick.class);

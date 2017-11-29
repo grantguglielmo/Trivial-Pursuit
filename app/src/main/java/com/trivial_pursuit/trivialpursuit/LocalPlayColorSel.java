@@ -279,17 +279,17 @@ public class LocalPlayColorSel extends AppCompatActivity {
     }
 
     @Override
-    protected void onPause() {
+    public void onPause() {
         super.onPause();
         if (!continueMusic) {
             MusicManager.pause();
         }
     }
     @Override
-    protected void onResume() {
+    public void onResume() {
         super.onResume();
         continueMusic = false;
-        MusicManager.start(this, MusicManager.MUSIC_MENU);
+        MusicManager.start(this, MusicManager.MUSIC_MENU, true);
     }
 
     @Override

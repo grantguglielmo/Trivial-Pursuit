@@ -16,6 +16,8 @@ public class SoundPlayer {
 
     private static SoundPool soundPool;
     private static int tapsound;
+    private static int dicesound;
+    private static int cardsound;
     private static int dicerollsound;
 
     public SoundPlayer(Context context){
@@ -31,7 +33,9 @@ public class SoundPlayer {
 
 
         tapsound = soundPool.load(context,R.raw.beep,1);
-        dicerollsound = soundPool.load(context,R.raw.beep,1);
+        cardsound = soundPool.load(context,R.raw.card,1);
+        dicesound = soundPool.load(context,R.raw.dice,1);
+        dicerollsound = soundPool.load(context,R.raw.beep2,1);
 
 
     }
@@ -39,10 +43,16 @@ public class SoundPlayer {
     public void playtapsound(){
         //play(int soundID, float leftVolume, float rightVolume, int priority, int loop, float rate)
         soundPool.play(tapsound,Globs.volFX,Globs.volFX,1,0,1.0f);
-
-
     }
-    public void dicerollsound(){
+    public void dicesound(){
+        //play(int soundID, float leftVolume, float rightVolume, int priority, int loop, float rate)
+        soundPool.play(dicesound,Globs.volFX,Globs.volFX,1,0,1.0f);
+    }
+    public void cardsound(){
+        //play(int soundID, float leftVolume, float rightVolume, int priority, int loop, float rate)
+        soundPool.play(cardsound,Globs.volFX,Globs.volFX,1,0,1.0f);
+    }
+    public void beep2sound(){
         soundPool.play(dicerollsound,Globs.volFX,Globs.volFX,1,0,1.0f);
 
 

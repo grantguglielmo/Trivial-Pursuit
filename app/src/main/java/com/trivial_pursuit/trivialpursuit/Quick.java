@@ -91,14 +91,35 @@ public class Quick extends AppCompatActivity {
     SizedStack<qaset> popstack;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         continueMusic = true;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quick);
-        View dimOver = findViewById(R.id.dim);
-        dimOver.setVisibility(View.GONE);
-        dimOver = findViewById(R.id.highlight);
-        dimOver.setVisibility(View.GONE);
+        View v = findViewById(R.id.dim);
+        v.setVisibility(View.GONE);
+        v = findViewById(R.id.highlight);
+        v.setVisibility(View.GONE);
+        v = findViewById(R.id.catb);
+        v.setEnabled(false);
+        v.setVisibility(View.GONE);
+        v = findViewById(R.id.catp);
+        v.setEnabled(false);
+        v.setVisibility(View.GONE);
+        v = findViewById(R.id.caty);
+        v.setEnabled(false);
+        v.setVisibility(View.GONE);
+        v = findViewById(R.id.catpu);
+        v.setEnabled(false);
+        v.setVisibility(View.GONE);
+        v = findViewById(R.id.catg);
+        v.setEnabled(false);
+        v.setVisibility(View.GONE);
+        v = findViewById(R.id.cato);
+        v.setEnabled(false);
+        v.setVisibility(View.GONE);
+        v = findViewById(R.id.catr);
+        v.setEnabled(false);
+        v.setVisibility(View.GONE);
         try {
             if(Globs.loadedQSet){
                 Globs.blueFile.close();
@@ -224,7 +245,7 @@ public class Quick extends AppCompatActivity {
         imageButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                Globs.sound.playtapsound();
+                Globs.sound.cardsound();
                 newCard();
             }
         });
@@ -232,7 +253,7 @@ public class Quick extends AppCompatActivity {
         imageButton2.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                Globs.sound.playtapsound();
+                Globs.sound.cardsound();
                 prevCard();
             }
         });
@@ -244,6 +265,32 @@ public class Quick extends AppCompatActivity {
                     View v = findViewById(R.id.category);
                     ObjectAnimator mover = ObjectAnimator.ofFloat(v, "translationX", 480, 0);
                     mover.start();
+                    mover.addListener(new Animator.AnimatorListener() {
+                        @Override
+                        public void onAnimationStart(Animator animator) {
+
+                        }
+
+                        @Override
+                        public void onAnimationEnd(Animator animator) {
+                            View v = findViewById(R.id.backbutton2);
+                            v.setVisibility(View.VISIBLE);
+                            v.setEnabled(true);
+                            v = findViewById(R.id.prev);
+                            v.setVisibility(View.VISIBLE);
+                            v.setEnabled(true);
+                        }
+
+                        @Override
+                        public void onAnimationCancel(Animator animator) {
+
+                        }
+
+                        @Override
+                        public void onAnimationRepeat(Animator animator) {
+
+                        }
+                    });
                     isopened = false;
 
                     v = findViewById(R.id.dim);
@@ -253,8 +300,6 @@ public class Quick extends AppCompatActivity {
                     //v.setVisibility(View.GONE);
                     v = findViewById(R.id.card);
                     v.setEnabled(true);
-                    v = findViewById(R.id.prev);
-                    v.setEnabled(true);
                     v = findViewById(R.id.next);
                     v.setEnabled(true);
                     v = findViewById(R.id.backbutton);
@@ -262,6 +307,30 @@ public class Quick extends AppCompatActivity {
 
                     v = findViewById(R.id.highlight);
                     v.setVisibility(View.GONE);
+                    v = findViewById(R.id.catb);
+                    v.setEnabled(false);
+                    v.setVisibility(View.GONE);
+                    v = findViewById(R.id.catp);
+                    v.setEnabled(false);
+                    v.setVisibility(View.GONE);
+                    v = findViewById(R.id.caty);
+                    v.setEnabled(false);
+                    v.setVisibility(View.GONE);
+                    v = findViewById(R.id.catpu);
+                    v.setEnabled(false);
+                    v.setVisibility(View.GONE);
+                    v = findViewById(R.id.catg);
+                    v.setEnabled(false);
+                    v.setVisibility(View.GONE);
+                    v = findViewById(R.id.cato);
+                    v.setEnabled(false);
+                    v.setVisibility(View.GONE);
+                    v = findViewById(R.id.catr);
+                    v.setEnabled(false);
+                    v.setVisibility(View.GONE);
+
+                    ImageView iv = (ImageView)findViewById(R.id.category);
+                    iv.setImageResource(R.drawable.catnew2);
                 }
             }
         });
@@ -286,48 +355,70 @@ public class Quick extends AppCompatActivity {
                 return false;
             }
         });
-        final View imageButton5 = findViewById(R.id.category);
-        imageButton5.setOnTouchListener(new View.OnTouchListener(){
+        final View catB = findViewById(R.id.catb);
+        catB.setOnClickListener(new View.OnClickListener(){
             @Override
-            public boolean onTouch(View view, MotionEvent event){
+            public void onClick(View view) {
+                MoveHighlight(BLUE);
+                CatChange(BLUE);
+            }
+        });
+        final View catP = findViewById(R.id.catp);
+        catP.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                MoveHighlight(PINK);
+                CatChange(PINK);
+            }
+        });
+        final View catY = findViewById(R.id.caty);
+        catY.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                MoveHighlight(YELLOW);
+                CatChange(YELLOW);
+            }
+        });
+        final View catPu = findViewById(R.id.catpu);
+        catPu.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                MoveHighlight(PURPLE);
+                CatChange(PURPLE);
+            }
+        });
+        final View catG = findViewById(R.id.catg);
+        catG.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                MoveHighlight(GREEN);
+                CatChange(GREEN);
+            }
+        });
+        final View catO = findViewById(R.id.cato);
+        catO.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                MoveHighlight(ORANGE);
+                CatChange(ORANGE);
+            }
+        });
+        final View catR = findViewById(R.id.catr);
+        catR.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                MoveHighlight(RANDOM);
+                CatChange(RANDOM);
+            }
+        });
+        final View imageButton5 = findViewById(R.id.category);
+        imageButton5.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                ImageView but = (ImageView)findViewById(R.id.catb);
                 if(isopened) {
-                    if (event.getAction() == MotionEvent.ACTION_DOWN) {
-                        int[] viewCoords = new int[2];
-                        view.getLocationOnScreen(viewCoords);
-                        int touchX = (int) event.getX();
-                        int touchY = (int) event.getY();
-                        int imageX = touchX - viewCoords[0];
-                        int imageY = touchY - viewCoords[1];
-                        int width = view.getMeasuredWidth() + 320;
-                        int height = view.getMeasuredHeight();
-                        if(imageX >= width){
-                            tabloc = 0;
-                        }
-                        else if((imageX <= width - 320) || (imageY < 20)){
-                            tabloc = 8;
-                        }
-                        else if((imageY <= ((double)height*1/7)) && (imageY >= 20)){
-                            tabloc = 1;
-                        }
-                        else if(imageY <= ((double)height*2/7)){
-                            tabloc = 2;
-                        }
-                        else if(imageY <= ((double)height*3/7) - 50){
-                            tabloc = 3;
-                        }
-                        else if(imageY <= ((double)height*4/7) - 60){
-                            tabloc = 4;
-                        }
-                        else if(imageY <= ((double)height*5/7) - 100){
-                            tabloc = 5;
-                        }
-                        else if(imageY <= ((double)height*6/7) - 130){
-                            tabloc = 6;
-                        }
-                        else if(imageY <= ((double)height*7/7 - 150)){
-                            tabloc = 7;
-                        }
-                        return false;
+                    if (motionEvent.getX() > but.getRight()) {
+                        tabloc = 1;
                     }
                 }
                 return false;
@@ -337,10 +428,37 @@ public class Quick extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(isopened) {
-                    if(tabloc == 0) {
+                    if(tabloc == 1){
+                        tabloc = 0;
                         View v = findViewById(R.id.category);
                         ObjectAnimator mover = ObjectAnimator.ofFloat(v, "translationX", 480, 0);
                         mover.start();
+                        mover.addListener(new Animator.AnimatorListener() {
+                            @Override
+                            public void onAnimationStart(Animator animator) {
+
+                            }
+
+                            @Override
+                            public void onAnimationEnd(Animator animator) {
+                                View v = findViewById(R.id.backbutton2);
+                                v.setVisibility(View.VISIBLE);
+                                v.setEnabled(true);
+                                v = findViewById(R.id.prev);
+                                v.setVisibility(View.VISIBLE);
+                                v.setEnabled(true);
+                            }
+
+                            @Override
+                            public void onAnimationCancel(Animator animator) {
+
+                            }
+
+                            @Override
+                            public void onAnimationRepeat(Animator animator) {
+
+                            }
+                        });
                         isopened = false;
 
                         v = findViewById(R.id.dim);
@@ -350,8 +468,6 @@ public class Quick extends AppCompatActivity {
                         //v.setVisibility(View.GONE);
                         v = findViewById(R.id.card);
                         v.setEnabled(true);
-                        v = findViewById(R.id.prev);
-                        v.setEnabled(true);
                         v = findViewById(R.id.next);
                         v.setEnabled(true);
                         v = findViewById(R.id.backbutton);
@@ -359,34 +475,30 @@ public class Quick extends AppCompatActivity {
 
                         v = findViewById(R.id.highlight);
                         v.setVisibility(View.GONE);
-                    }
-                    else if(tabloc == 1){
-                        MoveHighlight(BLUE);
-                        CatChange(BLUE);
-                    }
-                    else if(tabloc == 2){
-                        MoveHighlight(PINK);
-                        CatChange(PINK);
-                    }
-                    else if(tabloc == 3){
-                        MoveHighlight(YELLOW);
-                        CatChange(YELLOW);
-                    }
-                    else if(tabloc == 4){
-                        MoveHighlight(PURPLE);
-                        CatChange(PURPLE);
-                    }
-                    else if(tabloc == 5){
-                        MoveHighlight(GREEN);
-                        CatChange(GREEN);
-                    }
-                    else if(tabloc == 6){
-                        MoveHighlight(ORANGE);
-                        CatChange(ORANGE);
-                    }
-                    else if(tabloc == 7){
-                        MoveHighlight(RANDOM);
-                        CatChange(RANDOM);
+                        v = findViewById(R.id.catb);
+                        v.setEnabled(false);
+                        v.setVisibility(View.GONE);
+                        v = findViewById(R.id.catp);
+                        v.setEnabled(false);
+                        v.setVisibility(View.GONE);
+                        v = findViewById(R.id.caty);
+                        v.setEnabled(false);
+                        v.setVisibility(View.GONE);
+                        v = findViewById(R.id.catpu);
+                        v.setEnabled(false);
+                        v.setVisibility(View.GONE);
+                        v = findViewById(R.id.catg);
+                        v.setEnabled(false);
+                        v.setVisibility(View.GONE);
+                        v = findViewById(R.id.cato);
+                        v.setEnabled(false);
+                        v.setVisibility(View.GONE);
+                        v = findViewById(R.id.catr);
+                        v.setEnabled(false);
+                        v.setVisibility(View.GONE);
+
+                        ImageView iv = (ImageView)findViewById(R.id.category);
+                        iv.setImageResource(R.drawable.catnew2);
                     }
                 }
                 else{
@@ -399,10 +511,14 @@ public class Quick extends AppCompatActivity {
                     v = findViewById(R.id.card);
                     v.setEnabled(false);
                     v = findViewById(R.id.prev);
+                    v.setVisibility(View.GONE);
                     v.setEnabled(false);
                     v = findViewById(R.id.next);
                     v.setEnabled(false);
                     v = findViewById(R.id.backbutton);
+                    v.setEnabled(false);
+                    v = findViewById(R.id.backbutton2);
+                    v.setVisibility(View.GONE);
                     v.setEnabled(false);
 
                     v = findViewById(R.id.category);
@@ -417,6 +533,31 @@ public class Quick extends AppCompatActivity {
                         @Override
                         public void onAnimationEnd(Animator animator) {
                             View v = findViewById(R.id.highlight);
+                            v.setVisibility(View.VISIBLE);
+
+                            ImageView iv = (ImageView)findViewById(R.id.category);
+                            iv.setImageResource(R.drawable.catnew);
+
+                            v = findViewById(R.id.catb);
+                            v.setEnabled(true);
+                            v.setVisibility(View.VISIBLE);
+                            v = findViewById(R.id.catp);
+                            v.setEnabled(true);
+                            v.setVisibility(View.VISIBLE);
+                            v = findViewById(R.id.caty);
+                            v.setEnabled(true);
+                            v.setVisibility(View.VISIBLE);
+                            v = findViewById(R.id.catpu);
+                            v.setEnabled(true);
+                            v.setVisibility(View.VISIBLE);
+                            v = findViewById(R.id.catg);
+                            v.setEnabled(true);
+                            v.setVisibility(View.VISIBLE);
+                            v = findViewById(R.id.cato);
+                            v.setEnabled(true);
+                            v.setVisibility(View.VISIBLE);
+                            v = findViewById(R.id.catr);
+                            v.setEnabled(true);
                             v.setVisibility(View.VISIBLE);
                         }
 
@@ -435,7 +576,7 @@ public class Quick extends AppCompatActivity {
         });
     }
 
-    protected void pushToLineNum(int line, BufferedReader f){
+    public void pushToLineNum(int line, BufferedReader f){
         int start = 1;
         while(start != line){
             try {
@@ -449,37 +590,45 @@ public class Quick extends AppCompatActivity {
         }
     }
 
-    protected void MoveHighlight(Category c){
+    public void MoveHighlight(Category c){
         if(cat == c){
             return;
         }
+        ImageView y;
         ImageView s = (ImageView) findViewById(R.id.highlight);
         switch(c){
             case BLUE:
-                s.setY(130);
+                y = (ImageView) findViewById(R.id.catb);
+                s.setY(y.getY());
                 break;
             case PINK:
-                s.setY(390);
+                y = (ImageView) findViewById(R.id.catp);
+                s.setY(y.getY());
                 break;
             case YELLOW:
-                s.setY(668);
+                y = (ImageView) findViewById(R.id.caty);
+                s.setY(y.getY());
                 break;
             case PURPLE:
-                s.setY(940);
+                y = (ImageView) findViewById(R.id.catpu);
+                s.setY(y.getY());
                 break;
             case GREEN:
-                s.setY(1195);
+                y = (ImageView) findViewById(R.id.catg);
+                s.setY(y.getY());
                 break;
             case ORANGE:
-                s.setY(1450);
+                y = (ImageView) findViewById(R.id.cato);
+                s.setY(y.getY());
                 break;
             case RANDOM:
-                s.setY(1700);
+                y = (ImageView) findViewById(R.id.catr);
+                s.setY(y.getY());
                 break;
         }
     }
 
-    protected void CatChange(Category c){
+    public void CatChange(Category c){
         if(cat == c){
             return;
         }
@@ -492,7 +641,7 @@ public class Quick extends AppCompatActivity {
         newCard();
     }
 
-    protected void prevCard(){
+    public void prevCard(){
         if(qstack.size() == 0){
             return;
         }
@@ -526,7 +675,7 @@ public class Quick extends AppCompatActivity {
         }
     }
 
-    protected void popCard(){
+    public void popCard(){
         qaset prev = popstack.pop();
         Ques = prev.Q;
         Ans = prev.A;
@@ -556,7 +705,7 @@ public class Quick extends AppCompatActivity {
         }
     }
 
-    protected void newCard(){
+    public void newCard(){
         if(!Ques.equals("")){
             qstack.push(new qaset(Ques, Ans, Qcat));
         }
@@ -849,7 +998,7 @@ public class Quick extends AppCompatActivity {
     }
 
     @Override
-    protected void onDestroy() {
+    public void onDestroy() {
         try {
             if (Globs.loadedQSet) {
                 Globs.blueFile.close();
@@ -868,14 +1017,14 @@ public class Quick extends AppCompatActivity {
     }
 
     @Override
-    protected void onPause() {
+    public void onPause() {
         super.onPause();
         if (!continueMusic) {
             MusicManager.pause();
         }
     }
     @Override
-    protected void onResume() {
+    public void onResume() {
         super.onResume();
         continueMusic = false;
         MusicManager.start(this, MusicManager.MUSIC_QUICK, true);

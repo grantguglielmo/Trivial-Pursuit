@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.CompoundButton;
+import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.Switch;
 import android.widget.TextView;
@@ -32,6 +33,10 @@ public class Settings extends AppCompatActivity {
         initControls();
         sb = (SeekBar) findViewById(R.id.seekBar);
         sb.setProgress((int)(Globs.volFX*10));
+        if(Globs.volFX == 0){
+            ImageView i = (ImageView)findViewById(R.id.vollow2);
+            i.setImageResource(R.drawable.volmute);
+        }
         sb.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener()
         {
             @Override
@@ -47,7 +52,15 @@ public class Settings extends AppCompatActivity {
             @Override
             public void onProgressChanged(SeekBar arg0, int progress, boolean arg2)
             {
+                if(Globs.volFX == 0){
+                    ImageView i = (ImageView)findViewById(R.id.vollow2);
+                    i.setImageResource(R.drawable.vollow);
+                }
                 Globs.volFX = (float)(progress/10.0);
+                if(Globs.volFX == 0){
+                    ImageView i = (ImageView)findViewById(R.id.vollow2);
+                    i.setImageResource(R.drawable.volmute);
+                }
             }
         });
 
@@ -62,10 +75,7 @@ public class Settings extends AppCompatActivity {
                 Globs.timeron = b;
             }
         });
-        if(Globs.timerval<1){
-            valuetxt.setText("Timer off");
-        }
-        else if(Globs.timerval == 1) {
+        if(Globs.timerval == 1) {
             valuetxt.setText(String.valueOf(Globs.timerval) + " min");
         }
         else{
@@ -75,15 +85,7 @@ public class Settings extends AppCompatActivity {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromuser) {
                 //global value for timervalue in minutes
-                Globs.timerval = 1;
-                Globs.timerval = (int)(progress/14);//100/14=7
-                if(Globs.timerval<1){
-                    Globs.timerval = 1;
-                    Globs.timeron = false;
-                    valuetxt.setText("Timer off");
-                    return;
-                }
-                Globs.timeron = true;
+                Globs.timerval = (int)(progress/14) + 1;  //100/14=7
                 if(Globs.timerval == 1) {
                     valuetxt.setText(String.valueOf(Globs.timerval) + " min");
                 }
@@ -153,6 +155,10 @@ public class Settings extends AppCompatActivity {
             volumeSeekbar = (SeekBar)findViewById(R.id.seekBar1);
             audioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
             volumeSeekbar.setProgress((int)(MusicManager.getMusicVolume()*10));
+            if(Globs.vol == 0){
+                ImageView i = (ImageView)findViewById(R.id.vollow);
+                i.setImageResource(R.drawable.volmute);
+            }
 
             volumeSeekbar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener()
             {
@@ -169,8 +175,16 @@ public class Settings extends AppCompatActivity {
                 @Override
                 public void onProgressChanged(SeekBar arg0, int progress, boolean arg2)
                 {
+                    if(Globs.vol == 0){
+                        ImageView i = (ImageView)findViewById(R.id.vollow);
+                        i.setImageResource(R.drawable.vollow);
+                    }
                     Globs.vol = (float)(progress/10.0);
                     MusicManager.updateVolumeFromPrefs();
+                    if(Globs.vol == 0){
+                        ImageView i = (ImageView)findViewById(R.id.vollow);
+                        i.setImageResource(R.drawable.volmute);
+                    }
                 }
             });
         }

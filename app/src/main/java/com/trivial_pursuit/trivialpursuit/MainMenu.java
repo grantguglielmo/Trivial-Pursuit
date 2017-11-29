@@ -10,6 +10,7 @@ import android.view.animation.Animation;
 import android.view.animation.LinearInterpolator;
 import android.view.animation.RotateAnimation;
 
+
 import com.plattysoft.leonids.ParticleSystem;
 
 import java.io.IOException;
@@ -23,8 +24,8 @@ public class MainMenu extends AppCompatActivity {
         easter = 0;
         super.onCreate(savedInstanceState);
         SharedPreferences settings = getSharedPreferences("Settings", 0);
-        Globs.vol = Float.parseFloat(settings.getString("volume", "3"));
-        Globs.volFX = Float.parseFloat(settings.getString("volumefx", "3"));
+        Globs.vol = Float.parseFloat(settings.getString("volume", "0.3"));
+        Globs.volFX = Float.parseFloat(settings.getString("volumefx", "0.3"));
         Globs.timerval = Integer.parseInt(settings.getString("timerval", "3"));
         Globs.timeron = Boolean.parseBoolean(settings.getString("timeron", "true"));
 
@@ -45,21 +46,21 @@ public class MainMenu extends AppCompatActivity {
     }
 
     @Override
-    protected void onPause() {
+    public void onPause() {
         super.onPause();
         if (!continueMusic) {
             MusicManager.pause();
         }
     }
     @Override
-    protected void onResume() {
+    public void onResume() {
         super.onResume();
         continueMusic = false;
         MusicManager.start(this, MusicManager.MUSIC_MENU);
     }
 
     @Override
-    protected void onDestroy() {
+    public void onDestroy() {
         try {
             if (Globs.loadedQSet) {
                 Globs.blueFile.close();
@@ -89,9 +90,25 @@ public class MainMenu extends AppCompatActivity {
     public void secretbutton(View view){
         easter++;
         if(easter == 7){
-            new ParticleSystem(this, 1024, R.drawable.star_pink, 3000)
-                .setSpeedRange(0.2f, 0.5f)
-                .oneShot(view, 1024);
+            Globs.sound.beep2sound();
+            ParticleSystem p0 = new ParticleSystem(this, 200, R.drawable.star_blue, 4000);
+            p0.setSpeedRange(0.2f, 0.5f);
+            ParticleSystem p1 = new ParticleSystem(this, 200, R.drawable.star_pink, 4000);
+            p1.setSpeedRange(0.2f, 0.5f);
+            ParticleSystem p2 = new ParticleSystem(this, 200, R.drawable.star_yellow, 4000);
+            p2.setSpeedRange(0.2f, 0.5f);
+            ParticleSystem p3 = new ParticleSystem(this, 200, R.drawable.star_purple, 4000);
+            p3.setSpeedRange(0.2f, 0.5f);
+            ParticleSystem p4 = new ParticleSystem(this, 200, R.drawable.star_green, 4000);
+            p4.setSpeedRange(0.2f, 0.5f);
+            ParticleSystem p5 = new ParticleSystem(this, 200, R.drawable.star_orange, 4000);
+            p5.setSpeedRange(0.2f, 0.5f);
+            p0.oneShot(view, 200);
+            p1.oneShot(view, 200);
+            p2.oneShot(view, 200);
+            p3.oneShot(view, 200);
+            p4.oneShot(view, 200);
+            p5.oneShot(view, 200);
         }
     }
 

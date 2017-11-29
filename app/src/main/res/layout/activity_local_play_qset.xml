@@ -32,6 +32,19 @@
         android:id="@+id/buttonM"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true" />
+
+    <Button
+        android:id="@+id/die"
+        android:layout_width="50pt"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/buttonC"
+        android:layout_alignStart="@+id/buttonC"
+        android:layout_below="@+id/buttonC"
+        android:layout_marginLeft="6dp"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="64dp"
+        android:onClick="roll"
+        android:text="Roll" />
     <Button
         android:layout_width="50pt"
         android:layout_height="wrap_content"

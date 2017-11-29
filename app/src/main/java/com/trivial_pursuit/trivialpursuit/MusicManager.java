@@ -12,7 +12,7 @@ public class MusicManager {
     public static final int MUSIC_PREVIOUS = -1;
     public static final int MUSIC_MENU = 0;
     public static final int MUSIC_QUICK = 1;
-    public static final int MUSIC_END_GAME = 2;
+    public static final int MUSIC_GAME = 2;
 
     private static HashMap players = new HashMap();
     private static int currentMusic = -1;
@@ -55,6 +55,9 @@ public class MusicManager {
             }
             else if(music == MUSIC_QUICK){
                 mp = MediaPlayer.create(context, R.raw.audio1);
+            }
+            else if(music == MUSIC_GAME){
+                mp = MediaPlayer.create(context, R.raw.audio2);
             }
             else{
                 return;

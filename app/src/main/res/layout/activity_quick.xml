@@ -21,6 +21,14 @@
         android:layout_height="50dp"
         android:onClick="Backbutt"
         android:src="@drawable/backbut"/>
+    <ImageView
+        android:id="@+id/prev2"
+        android:layout_width="140dp"
+        android:layout_height="60dp"
+        android:src="@drawable/prev"
+        android:layout_alignTop="@+id/next"
+        android:layout_alignLeft="@+id/questionTxt"
+        android:layout_alignStart="@+id/questionTxt" />
     <TextView
         android:id="@+id/questionTxt"
         android:layout_height="170dp"
@@ -50,14 +58,7 @@
         android:layout_alignParentBottom="true"
         android:layout_alignRight="@+id/questionTxt"
         android:layout_alignEnd="@+id/questionTxt" />
-    <ImageView
-        android:id="@+id/prev"
-        android:layout_width="140dp"
-        android:layout_height="60dp"
-        android:src="@drawable/prev"
-        android:layout_alignTop="@+id/next"
-        android:layout_alignLeft="@+id/questionTxt"
-        android:layout_alignStart="@+id/questionTxt" />
+
     <com.trivial_pursuit.trivialpursuit.CustomOverlay
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -69,16 +70,94 @@
         android:id="@+id/category"
         android:layout_width="290dp"
         android:layout_height="600dp"
-        android:src="@drawable/cat"
+        android:src="@drawable/catnew2"
         android:clipToPadding="false"
-        android:layout_marginLeft="-265dp"/>
+    android:layout_marginLeft="-230dp"/>
+    <ImageView
+        android:id="@+id/catr"
+        android:layout_width="78dp"
+        android:layout_height="82dp"
+        android:src="@drawable/catrand"
+        android:clipToPadding="false"
+        android:layout_below="@+id/cato"
+        android:layout_alignTop="@+id/highlight"
+        android:layout_toRightOf="@+id/category"
+        android:layout_toEndOf="@+id/category" />
     <ImageView
         android:id="@+id/highlight"
         android:layout_width="82dp"
         android:layout_height="82dp"
         android:src="@drawable/cathighlight"
+        android:layout_below="@+id/cato"
+        android:layout_toRightOf="@+id/category"
+        android:layout_toEndOf="@+id/category" />
+    <ImageView
+        android:id="@+id/cato"
+        android:layout_width="78dp"
+        android:layout_height="82dp"
+        android:src="@drawable/catorange"
         android:clipToPadding="false"
-        android:layout_marginLeft="45dp"
-        android:layout_marginTop="485dp"/>
+        android:layout_below="@+id/catg"
+        android:layout_toRightOf="@+id/category"
+        android:layout_toEndOf="@+id/category" />
+    <ImageView
+        android:id="@+id/catg"
+        android:layout_width="78dp"
+        android:layout_height="82dp"
+        android:src="@drawable/catgreen"
+        android:clipToPadding="false"
+        android:layout_alignBottom="@+id/answerHelp"
+        android:layout_alignLeft="@+id/cato"
+        android:layout_alignStart="@+id/cato" />
+    <ImageView
+        android:id="@+id/catpu"
+        android:layout_width="78dp"
+        android:layout_height="82dp"
+        android:src="@drawable/catpurple"
+        android:clipToPadding="false"
+        android:layout_alignBottom="@+id/questionTxt"
+        android:layout_alignLeft="@+id/catg"
+        android:layout_alignStart="@+id/catg" />
+    <ImageView
+        android:id="@+id/caty"
+        android:layout_width="78dp"
+        android:layout_height="82dp"
+        android:src="@drawable/catyellow"
+        android:clipToPadding="false"
+        android:layout_above="@+id/catpu"
+        android:layout_alignLeft="@+id/catpu"
+        android:layout_alignStart="@+id/catpu" />
+    <ImageView
+        android:id="@+id/catp"
+        android:layout_width="78dp"
+        android:layout_height="82dp"
+        android:src="@drawable/catpink"
+        android:clipToPadding="false"
+        android:layout_above="@+id/caty"
+        android:layout_alignLeft="@+id/caty"
+        android:layout_alignStart="@+id/caty" />
+    <ImageView
+        android:id="@+id/catb"
+        android:layout_width="78dp"
+        android:layout_height="82dp"
+        android:src="@drawable/catblue"
+        android:clipToPadding="false"
+        android:layout_above="@+id/catp"
+        android:layout_alignLeft="@+id/catp"
+        android:layout_alignStart="@+id/catp" />
+    <ImageView
+        android:id="@+id/prev"
+        android:layout_width="140dp"
+        android:layout_height="60dp"
+        android:src="@drawable/prev"
+        android:layout_alignTop="@+id/next"
+        android:layout_alignLeft="@+id/questionTxt"
+        android:layout_alignStart="@+id/questionTxt" />
+    <ImageView
+        android:id="@+id/backbutton2"
+        android:layout_width="75dp"
+        android:layout_height="50dp"
+        android:onClick="Backbutt"
+        android:src="@drawable/backbut"/>
 
 </RelativeLayout>

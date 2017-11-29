@@ -13,7 +13,7 @@ public class LocalPlayNumP extends AppCompatActivity implements AdapterView.OnIt
     public boolean continueMusic;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         continueMusic = true;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_local_play_nump);
@@ -53,14 +53,14 @@ public class LocalPlayNumP extends AppCompatActivity implements AdapterView.OnIt
     }
 
     @Override
-    protected void onPause() {
+    public void onPause() {
         super.onPause();
         if (!continueMusic) {
             MusicManager.pause();
         }
     }
     @Override
-    protected void onResume() {
+    public void onResume() {
         super.onResume();
         continueMusic = false;
         MusicManager.start(this, MusicManager.MUSIC_MENU);
@@ -86,7 +86,7 @@ public class LocalPlayNumP extends AppCompatActivity implements AdapterView.OnIt
         Globs.playerCnt = 2;
     }
 
-    protected void startColorSel(View v){
+    public void startColorSel(View v){
         Spinner mySpinner=(Spinner) findViewById(R.id.spinner1);
         String text = mySpinner.getSelectedItem().toString();
         Globs.playerCnt = Integer.parseInt(text);

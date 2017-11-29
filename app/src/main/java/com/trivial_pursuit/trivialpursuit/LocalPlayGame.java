@@ -1,14 +1,23 @@
 package com.trivial_pursuit.trivialpursuit;
 
+import android.content.ClipData;
+import android.content.ClipDescription;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.AssetManager;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.DragEvent;
 import android.view.KeyEvent;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.ScrollView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -21,11 +30,28 @@ import java.util.Random;
 public class LocalPlayGame extends AppCompatActivity {
     public boolean continueMusic;
 
+    public Board boardTree;
+
+    int windowwidth;
+    int windowheight;
+    int startx;
+    int starty;
+    int pos;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         continueMusic = true;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_local_play_game);
+
+        pos = 0;
+        boardTree = new Board();
+        Globs.p1Loc = boardTree.centerNode;
+        Globs.p2Loc = boardTree.centerNode;
+        Globs.p3Loc = boardTree.centerNode;
+        Globs.p4Loc = boardTree.centerNode;
+        Globs.p5Loc = boardTree.centerNode;
+        Globs.p6Loc = boardTree.centerNode;
 
         try {
             if(Globs.loadedQSet){
@@ -128,25 +154,240 @@ public class LocalPlayGame extends AppCompatActivity {
             Globs.greenIdx = Integer.parseInt(mPrefs.getString("green", ""));
             Globs.orangeIdx = Integer.parseInt(mPrefs.getString("orange", ""));
         }
+
+        final ScrollView myScroll = (ScrollView) findViewById(R.id.boardscroll);
+        myScroll.setOnTouchListener( new View.OnTouchListener(){
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                return true;
+            }
+        });
+
+        windowwidth = getWindowManager().getDefaultDisplay().getWidth();
+        windowheight = getWindowManager().getDefaultDisplay().getHeight();
+        final View vi = (View)findViewById(R.id.board);
+        vi.setOnTouchListener(new View.OnTouchListener() {
+
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) vi.getLayoutParams();
+                switch(event.getAction())
+                {
+                    case MotionEvent.ACTION_DOWN:
+                        startx = (int)event.getRawX();
+                        starty = (int)event.getRawY();
+                        break;
+                    case MotionEvent.ACTION_UP:
+
+                        break;
+                    case MotionEvent.ACTION_MOVE:
+                        int x_cord = (int)event.getRawX();
+                        int y_cord = (int)event.getRawY();
+
+                        if(x_cord > startx + 10){
+                           posLeft();
+                        }
+                        else if(x_cord < startx - 10){
+                            posRight();
+                        }
+                        if(y_cord > starty + 10){
+                            posUp();
+                        }
+                        else if(y_cord < starty - 10){
+                            posDown();
+                        }
+                        startx = (int)event.getRawX();
+                        starty = (int)event.getRawY();
+
+                        posMov();
+                        break;
+                    default:
+                        break;
+                }
+                return true;
+            }
+        });
+    }
+    int xsize = 700;
+    int ysize = 700;
+    boolean fromL = true;
+
+    public void posMov(){
+        final View vi = (View)findViewById(R.id.board);
+        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) vi.getLayoutParams();
+        switch(pos){
+            case 0:
+                layoutParams.leftMargin = 0;
+                layoutParams.topMargin = 0;
+                break;
+            case 1:
+                layoutParams.leftMargin = xsize;
+                layoutParams.topMargin = 0;
+                break;
+            case 2:
+                layoutParams.leftMargin = xsize/2;
+                layoutParams.topMargin = ysize;
+                break;
+            case 3:
+                layoutParams.leftMargin = -xsize/2;
+                layoutParams.topMargin = ysize;
+                break;
+            case 4:
+                layoutParams.leftMargin = -xsize;
+                layoutParams.topMargin = 0;
+                break;
+            case 5:
+                layoutParams.leftMargin = -xsize/2;
+                layoutParams.topMargin = -ysize;
+                break;
+            case 6:
+                layoutParams.leftMargin = xsize/2;
+                layoutParams.topMargin = -ysize;
+                break;
+        }
+        vi.setLayoutParams(layoutParams);
+    }
+
+    public void posLeft(){
+        switch(pos){
+            case 0:
+                pos = 1;
+                break;
+            case 1:
+                break;
+            case 2:
+                pos = 1;
+                break;
+            case 3:
+                pos = 2;
+                break;
+            case 4:
+                pos = 0;
+                break;
+            case 5:
+                pos = 6;
+                break;
+            case 6:
+                pos = 1;
+                break;
+        }
+        if(pos == 1 || pos == 2 || pos == 6){
+            fromL = true;
+        }
+        else if(pos != 0){
+            fromL = false;
+        }
+    }
+
+    public void posRight(){
+        switch(pos){
+            case 0:
+                pos = 4;
+                break;
+            case 1:
+                pos = 0;
+                break;
+            case 2:
+                pos = 3;
+                break;
+            case 3:
+                pos = 4;
+                break;
+            case 4:
+                break;
+            case 5:
+                pos = 4;
+                break;
+            case 6:
+                pos = 5;
+                break;
+        }
+        if(pos == 1 || pos == 2 || pos == 6){
+            fromL = true;
+        }
+        else if(pos != 0){
+            fromL = false;
+        }
+    }
+
+    public void posDown(){
+        switch(pos){
+            case 0:
+                if(fromL)
+                    pos = 6;
+                else
+                    pos = 5;
+                break;
+            case 1:
+                pos = 6;
+                break;
+            case 2:
+                pos = 1;
+                break;
+            case 3:
+                pos = 4;
+                break;
+            case 4:
+                pos = 5;
+                break;
+            case 5:
+                break;
+            case 6:
+                break;
+        }
+        if(pos == 1 || pos == 2 || pos == 6){
+            fromL = true;
+        }
+        else if(pos != 0){
+            fromL = false;
+        }
+    }
+
+    public void posUp(){
+        switch(pos){
+            case 0:
+                if(fromL)
+                    pos = 2;
+                else
+                    pos = 3;
+                break;
+            case 1:
+                pos = 2;
+                break;
+            case 2:
+                break;
+            case 3:
+                break;
+            case 4:
+                pos = 3;
+                break;
+            case 5:
+                pos = 4;
+                break;
+            case 6:
+                pos = 1;
+                break;
+        }
+        if(pos == 1 || pos == 2 || pos == 6){
+            fromL = true;
+        }
+        else if(pos != 0){
+            fromL = false;
+        }
     }
 
     @Override
-    protected void onPause() {
+    public void onPause() {
         super.onPause();
         if (!continueMusic) {
             MusicManager.pause();
         }
     }
     @Override
-    protected void onResume() {
+    public void onResume() {
         super.onResume();
         continueMusic = false;
-        MusicManager.start(this, MusicManager.MUSIC_MENU);
-    }
-
-    public void Backbutt (View view) {
-        Globs.sound.playtapsound();
-        onBackPressed();
+        MusicManager.start(this, MusicManager.MUSIC_GAME, true);
     }
 
     @Override

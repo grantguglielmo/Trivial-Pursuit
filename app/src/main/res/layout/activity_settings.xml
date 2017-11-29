@@ -12,6 +12,38 @@
         android:layout_height="50dp"
         android:onClick="Backbutt"
         android:src="@drawable/backbut"/>
+    <ImageView
+        android:id="@+id/vollow"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:src="@drawable/vollow"
+        android:layout_alignTop="@+id/seekBar1"
+        android:layout_toLeftOf="@+id/seekBar1"
+        android:layout_toStartOf="@+id/seekBar1" />
+    <ImageView
+        android:id="@+id/vollow2"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:src="@drawable/vollow"
+        android:layout_alignTop="@+id/seekBar"
+        android:layout_toLeftOf="@+id/seekBar"
+        android:layout_toStartOf="@+id/seekBar" />
+    <ImageView
+        android:id="@+id/volhigh"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:src="@drawable/volhigh"
+        android:layout_alignTop="@+id/seekBar1"
+        android:layout_toRightOf="@+id/seekBar1"
+        android:layout_toEndOf="@+id/seekBar1" />
+    <ImageView
+        android:id="@+id/volhigh2"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:src="@drawable/volhigh"
+        android:layout_alignTop="@+id/seekBar"
+        android:layout_toRightOf="@+id/seekBar"
+        android:layout_toEndOf="@+id/seekBar" />
 
     <SeekBar
 
@@ -20,6 +52,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="65dp"
         android:max="10"
+        android:thumb="@drawable/seek"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
 
@@ -48,6 +81,7 @@
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="61dp"
+        android:thumb="@drawable/seek"
         android:layout_below="@+id/switch2"
         android:layout_alignLeft="@+id/seekBar1"
         android:layout_alignStart="@+id/seekBar1" />
@@ -67,12 +101,11 @@
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="Select Minutes"
+        android:text="Select Timer Length"
         android:textColor="@color/black_text"
-        android:layout_below="@+id/switch2"
-        android:layout_alignRight="@+id/switch2"
-        android:layout_alignEnd="@+id/switch2" />
+        android:layout_marginBottom="21dp"
+        android:layout_above="@+id/textView3"
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:id="@+id/button4"
@@ -90,6 +123,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="25dp"
         android:max="10"
+        android:thumb="@drawable/seek"
         android:layout_below="@+id/textView2"
         android:layout_alignLeft="@+id/seekBar1"
         android:layout_alignStart="@+id/seekBar1" />

@@ -22,6 +22,8 @@
         <activity android:name=".LocalPlayNumP"></activity>
         <activity android:name=".LocalPlayColorSel"></activity>
         <activity android:name=".LocalPlayGame"></activity>
+        <activity android:name=".Dice"
+            android:theme="@style/Theme.Transparent"/>
         <activity android:name=".Quick"></activity>
         <activity android:name=".Settings"></activity>
 

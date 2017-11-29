@@ -52,4 +52,13 @@ public class Globs {
     static Colors p4;
     static Colors p5;
     static Colors p6;
+
+    static BoardNode p1Loc;
+    static BoardNode p2Loc;
+    static BoardNode p3Loc;
+    static BoardNode p4Loc;
+    static BoardNode p5Loc;
+    static BoardNode p6Loc;
+
+    static int newRoll;
 }
