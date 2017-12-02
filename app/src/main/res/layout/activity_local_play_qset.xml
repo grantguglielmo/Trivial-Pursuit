@@ -24,35 +24,46 @@
         android:layout_height="50dp"
         android:onClick="Backbutt"
         android:src="@drawable/backbut"/>
-    <Button
-        android:layout_width="50pt"
-        android:layout_height="wrap_content"
-        android:text="Master\nEdition"
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="75dp"
         android:onClick="onClickM"
         android:id="@+id/buttonM"
+        android:src="@drawable/blue_button"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true" />
-
-    <Button
-        android:id="@+id/die"
-        android:layout_width="50pt"
+    <TextView
+        android:id="@+id/myImageViewText3"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/buttonC"
-        android:layout_alignStart="@+id/buttonC"
-        android:layout_below="@+id/buttonC"
-        android:layout_marginLeft="6dp"
-        android:layout_marginStart="6dp"
-        android:layout_marginTop="64dp"
-        android:onClick="roll"
-        android:text="Roll" />
-    <Button
-        android:layout_width="50pt"
-        android:layout_height="wrap_content"
-        android:text="Custom"
+        android:layout_alignLeft="@+id/buttonM"
+        android:layout_alignTop="@+id/buttonM"
+        android:layout_alignRight="@+id/buttonM"
+        android:layout_alignBottom="@+id/buttonM"
+        android:layout_margin="1dp"
+        android:gravity="center"
+        android:text="Master Edition"
+        android:textColor="@color/white" />
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="75dp"
         android:onClick="onClickC"
         android:id="@+id/buttonC"
+        android:src="@drawable/blue_button"
         android:layout_marginTop="48dp"
         android:layout_below="@+id/buttonM"
         android:layout_alignLeft="@+id/buttonM"
         android:layout_alignStart="@+id/buttonM" />
+    <TextView
+        android:id="@+id/myImageViewText2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/buttonC"
+        android:layout_alignTop="@+id/buttonC"
+        android:layout_alignRight="@+id/buttonC"
+        android:layout_alignBottom="@+id/buttonC"
+        android:layout_margin="1dp"
+        android:gravity="center"
+        android:text="Custom"
+        android:textColor="@color/white" />
 </RelativeLayout>

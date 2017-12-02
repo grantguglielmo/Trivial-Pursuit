@@ -11,6 +11,7 @@ public class BoardNode {
     public boolean wedge;
     public boolean center;
     public boolean rollAgain;
+    public int piece;
     public ArrayList<BoardNode> adjNode = new ArrayList<BoardNode>();
 
     public BoardNode(Globs.Colors c, boolean w, boolean ce, boolean r){

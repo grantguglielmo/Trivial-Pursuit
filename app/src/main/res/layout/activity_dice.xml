@@ -16,4 +16,23 @@
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true" />
 
+    <ImageView
+        android:id="@+id/team"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:src="@drawable/blueteam" />
+
+    <ImageView
+        android:id="@+id/ruleHelp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:onClick="showRule"
+        android:src="@drawable/info" />
+
 </RelativeLayout>

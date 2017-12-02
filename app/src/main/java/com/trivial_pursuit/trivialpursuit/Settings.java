@@ -131,6 +131,11 @@ public class Settings extends AppCompatActivity {
         return super.onKeyDown(keyCode, event);
     }
 
+    public void showRule(View v){
+        Intent intent = new Intent(this, Rules.class);
+        startActivity(intent);
+    }
+
     public void Backbutt (View view) {
         Globs.sound.playtapsound();
         onBackPressed();

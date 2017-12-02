@@ -12,10 +12,10 @@
         android:id="@+id/imageView1"
         android:layout_width="300dp"
         android:layout_height="300dp"
-        android:src="@drawable/trivialwheel2"
-        android:onClick="secretbutton"
         android:layout_below="@+id/Game_Title"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:onClick="secretbutton"
+        android:src="@drawable/trivialwheel2" />
 
     <ImageView
         android:id="@+id/Game_Title"
@@ -35,34 +35,73 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:id="@+id/textView" />
-    <Button
-        android:layout_width="50pt"
-        android:layout_height="wrap_content"
-        android:text="Local Play"
-        android:onClick="startLocal"
+
+    <ImageView
         android:id="@+id/button"
-        android:layout_marginBottom="26dp"
+        android:layout_width="150dp"
+        android:layout_height="75dp"
         android:layout_above="@+id/button3"
-        android:layout_alignLeft="@+id/button3"
-        android:layout_alignStart="@+id/button3" />
-    <Button
-        android:layout_width="50pt"
+        android:layout_centerHorizontal="true"
+        android:onClick="startLocal"
+        android:src="@drawable/blue_button" />
+
+    <TextView
+        android:id="@+id/myImageViewText"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Quickplay"
-        android:onClick="startQuick"
+        android:layout_alignLeft="@+id/button"
+        android:layout_alignRight="@+id/button"
+        android:layout_alignTop="@+id/button"
+        android:layout_alignBottom="@+id/button"
+        android:layout_margin="1dp"
+        android:gravity="center"
+        android:text="Local Play"
+        android:textColor="@color/white" />
+
+    <ImageView
         android:id="@+id/button3"
+        android:layout_width="150dp"
+        android:layout_height="75dp"
         android:layout_above="@+id/button2"
-        android:layout_alignLeft="@+id/button2"
-        android:layout_alignStart="@+id/button2"
-        android:layout_marginBottom="19dp" />
-    <Button
-        android:layout_width="50pt"
+        android:layout_alignLeft="@+id/myImageViewText3"
+        android:layout_alignStart="@+id/myImageViewText3"
+        android:onClick="startQuick"
+        android:src="@drawable/blue_button" />
+
+    <TextView
+        android:id="@+id/myImageViewText2"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Settings"
-        android:onClick="startSettings"
+        android:layout_alignLeft="@+id/button3"
+        android:layout_alignTop="@+id/button3"
+        android:layout_alignRight="@+id/button3"
+        android:layout_alignBottom="@+id/button3"
+        android:layout_margin="1dp"
+        android:gravity="center"
+        android:text="Quickplay"
+        android:textColor="@color/white" />
+
+    <ImageView
         android:id="@+id/button2"
-        android:layout_marginBottom="59dp"
+        android:layout_width="150dp"
+        android:layout_height="75dp"
+        android:layout_alignLeft="@+id/myImageViewText"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignStart="@+id/myImageViewText"
+        android:layout_marginBottom="18dp"
+        android:onClick="startSettings"
+        android:src="@drawable/blue_button" />
+    <TextView
+        android:id="@+id/myImageViewText3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/button2"
+        android:layout_alignTop="@+id/button2"
+        android:layout_alignRight="@+id/button2"
+        android:layout_alignBottom="@+id/button2"
+        android:textColor="@color/white"
+        android:layout_margin="1dp"
+        android:gravity="center"
+        android:text="Settings"/>
 
 </RelativeLayout>

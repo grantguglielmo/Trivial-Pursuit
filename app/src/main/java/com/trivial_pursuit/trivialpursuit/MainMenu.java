@@ -2,10 +2,13 @@ package com.trivial_pursuit.trivialpursuit;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.LinearInterpolator;
 import android.view.animation.RotateAnimation;
@@ -27,7 +30,7 @@ public class MainMenu extends AppCompatActivity {
         Globs.vol = Float.parseFloat(settings.getString("volume", "0.3"));
         Globs.volFX = Float.parseFloat(settings.getString("volumefx", "0.3"));
         Globs.timerval = Integer.parseInt(settings.getString("timerval", "3"));
-        Globs.timeron = Boolean.parseBoolean(settings.getString("timeron", "true"));
+        Globs.timeron = Boolean.parseBoolean(settings.getString("timeron", "false"));
 
         setContentView(R.layout.activity_main_menu);
         Globs.sound = new SoundPlayer(this);
@@ -43,6 +46,7 @@ public class MainMenu extends AppCompatActivity {
         continueMusic = false;
 
         findViewById(R.id.imageView1).startAnimation(rotateAnimation);
+
     }
 
     @Override

@@ -576,7 +576,7 @@ public class Quick extends AppCompatActivity {
         });
     }
 
-    public void pushToLineNum(int line, BufferedReader f){
+    public static void pushToLineNum(int line, BufferedReader f){
         int start = 1;
         while(start != line){
             try {
@@ -730,7 +730,7 @@ public class Quick extends AppCompatActivity {
                                 AssetManager am = getApplicationContext().getAssets();
                                 InputStream is = am.open(Globs.qsetPath + "blue.txt");
                                 Globs.blueFile = new BufferedReader(new InputStreamReader(is));
-                                bluei = 1;
+                                bluei = 2;
                             }
                             else{
                                 bluei++;
@@ -753,7 +753,7 @@ public class Quick extends AppCompatActivity {
                                 AssetManager am = getApplicationContext().getAssets();
                                 InputStream is = am.open(Globs.qsetPath + "pink.txt");
                                 Globs.pinkFile = new BufferedReader(new InputStreamReader(is));
-                                pinki = 1;
+                                pinki = 2;
                             }
                             else{
                                 pinki++;
@@ -776,7 +776,7 @@ public class Quick extends AppCompatActivity {
                                 AssetManager am = getApplicationContext().getAssets();
                                 InputStream is = am.open(Globs.qsetPath + "yellow.txt");
                                 Globs.yellowFile = new BufferedReader(new InputStreamReader(is));
-                                yellowi = 1;
+                                yellowi = 2;
                             }
                             else{
                                 yellowi++;
@@ -799,7 +799,7 @@ public class Quick extends AppCompatActivity {
                                 AssetManager am = getApplicationContext().getAssets();
                                 InputStream is = am.open(Globs.qsetPath + "purple.txt");
                                 Globs.purpleFile = new BufferedReader(new InputStreamReader(is));
-                                purplei = 1;
+                                purplei = 2;
                             }
                             else{
                                 purplei++;
@@ -822,7 +822,7 @@ public class Quick extends AppCompatActivity {
                                 AssetManager am = getApplicationContext().getAssets();
                                 InputStream is = am.open(Globs.qsetPath + "green.txt");
                                 Globs.greenFile = new BufferedReader(new InputStreamReader(is));
-                                greeni = 1;
+                                greeni = 2;
                             }
                             else{
                                 greeni++;
@@ -845,7 +845,7 @@ public class Quick extends AppCompatActivity {
                                 AssetManager am = getApplicationContext().getAssets();
                                 InputStream is = am.open(Globs.qsetPath + "orange.txt");
                                 Globs.orangeFile = new BufferedReader(new InputStreamReader(is));
-                                orangei = 1;
+                                orangei = 2;
                             }
                             else{
                                 orangei++;
@@ -870,7 +870,7 @@ public class Quick extends AppCompatActivity {
                         AssetManager am = getApplicationContext().getAssets();
                         InputStream is = am.open(Globs.qsetPath + "blue.txt");
                         Globs.blueFile = new BufferedReader(new InputStreamReader(is));
-                        bluei = 1;
+                        bluei = 2;
                     }
                     else{
                         bluei++;
@@ -892,7 +892,7 @@ public class Quick extends AppCompatActivity {
                         AssetManager am = getApplicationContext().getAssets();
                         InputStream is = am.open(Globs.qsetPath + "pink.txt");
                         Globs.pinkFile = new BufferedReader(new InputStreamReader(is));
-                        pinki = 1;
+                        pinki = 2;
                     }
                     else{
                         pinki++;
@@ -914,7 +914,7 @@ public class Quick extends AppCompatActivity {
                         AssetManager am = getApplicationContext().getAssets();
                         InputStream is = am.open(Globs.qsetPath + "yellow.txt");
                         Globs.yellowFile = new BufferedReader(new InputStreamReader(is));
-                        yellowi = 1;
+                        yellowi = 2;
                     }
                     else{
                         yellowi++;
@@ -936,7 +936,7 @@ public class Quick extends AppCompatActivity {
                         AssetManager am = getApplicationContext().getAssets();
                         InputStream is = am.open(Globs.qsetPath + "purple.txt");
                         Globs.purpleFile = new BufferedReader(new InputStreamReader(is));
-                        purplei = 1;
+                        purplei = 2;
                     }
                     else{
                         purplei++;
@@ -958,7 +958,7 @@ public class Quick extends AppCompatActivity {
                         AssetManager am = getApplicationContext().getAssets();
                         InputStream is = am.open(Globs.qsetPath + "green.txt");
                         Globs.greenFile = new BufferedReader(new InputStreamReader(is));
-                        greeni = 1;
+                        greeni = 2;
                     }
                     else{
                         greeni++;
@@ -980,7 +980,7 @@ public class Quick extends AppCompatActivity {
                         AssetManager am = getApplicationContext().getAssets();
                         InputStream is = am.open(Globs.qsetPath + "orange.txt");
                         Globs.orangeFile = new BufferedReader(new InputStreamReader(is));
-                        orangei = 1;
+                        orangei = 2;
                     }
                     else{
                         orangei++;

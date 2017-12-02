@@ -107,15 +107,27 @@
         android:layout_above="@+id/textView3"
         android:layout_centerHorizontal="true" />
 
-    <Button
+    <ImageView
         android:id="@+id/button4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="120dp"
+        android:layout_height="60dp"
         android:layout_marginTop="58dp"
         android:onClick="Backbutton"
-        android:text="Save"
+        android:src="@drawable/blue_button"
         android:layout_below="@+id/textView3"
         android:layout_centerHorizontal="true" />
+    <TextView
+        android:id="@+id/myImageViewText2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/button4"
+        android:layout_alignTop="@+id/button4"
+        android:layout_alignRight="@+id/button4"
+        android:layout_alignBottom="@+id/button4"
+        android:layout_margin="1dp"
+        android:gravity="center"
+        android:text="Save"
+        android:textColor="@color/white" />
 
     <SeekBar
         android:id="@+id/seekBar"
@@ -138,5 +150,15 @@
         android:layout_below="@+id/seekBar"
         android:layout_alignLeft="@+id/switch2"
         android:layout_alignStart="@+id/switch2" />
+
+    <ImageView
+        android:id="@+id/ruleHelp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:onClick="showRule"
+        android:src="@drawable/info" />
 
 </RelativeLayout>

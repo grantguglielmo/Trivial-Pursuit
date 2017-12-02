@@ -20,14 +20,18 @@ public class Dice extends AppCompatActivity {
     public boolean rolled;
     public boolean rollcomp;
     public int Maxrolls;
+    public boolean closed;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Globs.killGame = false;
         continueMusic = true;
         rollcomp = false;
         rolled = false;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dice);
+        ImageView i = (ImageView)findViewById(R.id.team);
+        i.setImageResource(Globs.teamDraw);
     }
 
     public void backG(View view){
@@ -35,9 +39,6 @@ public class Dice extends AppCompatActivity {
             if(rollcomp){
                 onBackPressed();
             }
-        }
-        else{
-            onBackPressed();
         }
     }
 
@@ -80,6 +81,13 @@ public class Dice extends AppCompatActivity {
         if(rollsLeft - 1 == 0){
             Globs.newRoll = roll + 1;
             rollcomp = true;
+            Handler handler = new Handler();
+            handler.postDelayed(new Runnable() {
+                public void run() {
+                    if(!closed)
+                        onBackPressed();
+                }
+            }, 900);
             return;
         }
         Handler handler = new Handler();
@@ -98,12 +106,29 @@ public class Dice extends AppCompatActivity {
         return x > y ? x : y;
     }
 
+    public boolean rules = false;
+
+    public void showRule(View v){
+        if(rolled){
+            return;
+        }
+        rules = true;
+        Intent intent = new Intent(this, Rules.class);
+        startActivity(intent);
+    }
+
     @Override
     public void onPause() {
+        if(!rules) {
+            closed = true;
+        }
+        rules = false;
         super.onPause();
+        overridePendingTransition(0, 0);
         if (!continueMusic) {
             MusicManager.pause();
         }
+        Globs.gameOn = true;
     }
     @Override
     public void onResume() {
@@ -118,9 +143,7 @@ public class Dice extends AppCompatActivity {
         //replaces the default 'Back' button action
         if(keyCode==KeyEvent.KEYCODE_BACK)
         {
-            if(!rolled){
-                Globs.newRoll = 1;
-            }
+            Globs.killGame = true;
             continueMusic = true;
         }
         return super.onKeyDown(keyCode, event);

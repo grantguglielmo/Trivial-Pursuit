@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/Categorycard"
+    tools:context="com.trivial_pursuit.trivialpursuit.Cards">
+
+    <ImageView
+        android:id="@+id/correctbutton"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_alignEnd="@+id/questionTxt2"
+        android:layout_alignRight="@+id/questionTxt2"
+        android:layout_alignTop="@+id/incorrectbutton"
+        android:onClick="correctfunc"
+        android:src="@drawable/correct" />
+
+    <ImageView
+        android:id="@+id/incorrectbutton"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_alignLeft="@+id/questionTxt2"
+        android:layout_alignStart="@+id/questionTxt2"
+        android:layout_below="@+id/card1"
+        android:layout_marginLeft="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="18dp"
+        android:onClick="incorrectfunc"
+        android:src="@drawable/incorrect" />
+
+    <ImageView
+        android:id="@+id/card1"
+        android:layout_width="500dp"
+        android:layout_height="480dp"
+        android:src="@drawable/trivialcardblue"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:id="@+id/answerHelp2"
+        android:layout_width="220dp"
+        android:layout_height="40dp"
+        android:layout_alignBottom="@+id/card1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="50dp"
+        android:text="Hold Card For Answer"
+        android:textColor="@color/white"
+        android:textSize="22sp" />
+
+    <TextView
+        android:id="@+id/questionTxt2"
+        android:layout_width="333dp"
+        android:layout_height="170dp"
+        android:layout_above="@+id/answerHelp2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="51dp"
+        android:text="What is your favorite colour?"
+        android:textColor="@color/black_text"
+        android:textSize="20sp" />
+
+    <ImageView
+        android:id="@+id/team"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:src="@drawable/blueteam" />
+
+    <TextView
+        android:id="@+id/timer"
+        android:layout_width="50dp"
+        android:layout_height="30dp"
+        android:layout_below="@+id/team"
+        android:layout_marginTop="14dp"
+        android:layout_toEndOf="@+id/answerHelp2"
+        android:layout_toRightOf="@+id/answerHelp2"
+        android:text="3:00"
+        android:onClick="startTimer"
+        android:textColor="@color/white"
+        android:textSize="20sp" />
+
+    <ImageView
+        android:id="@+id/hour"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignTop="@+id/timer"
+        android:layout_toEndOf="@+id/timer"
+        android:layout_toRightOf="@+id/timer"
+        android:onClick="startTimer"
+        android:src="@drawable/hourstart" />
+
+    <ImageView
+        android:id="@+id/lock"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:onClick="locker"
+        android:src="@drawable/unlock" />
+
+    <TextView
+        android:id="@+id/lockText"
+        android:layout_width="140dp"
+        android:layout_height="30dp"
+        android:layout_alignLeft="@+id/questionTxt2"
+        android:layout_alignStart="@+id/questionTxt2"
+        android:layout_alignTop="@+id/lock"
+        android:onClick="locker"
+        android:text="Lock Answer"
+        android:textColor="@color/white"
+        android:textSize="20sp" />
+
+    <ImageView
+        android:id="@+id/ruleHelp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:onClick="showRule"
+        android:src="@drawable/info" />
+
+
+</RelativeLayout>

@@ -42,11 +42,10 @@ public class LocalPlayQSet extends AppCompatActivity {
         super.onResume();
         continueMusic = false;
         MusicManager.start(this, MusicManager.MUSIC_MENU, true);
-    }
-
-    public void roll(View view){
-        Intent intent = new Intent(this, Dice.class);
-        startActivity(intent);
+        if(Globs.backToMain){
+            Globs.backToMain = false;
+            onBackPressed();
+        }
     }
 
     public void Backbutt (View view) {

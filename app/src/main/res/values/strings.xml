@@ -1,3 +1,25 @@
 <resources>
     <string name="app_name">Trivial Pursuit</string>
+    <string name="rules">RULES:\nAt the beginning of the game, each team starts at the center of the board.\n
+The team that is selected to go first rolls the dice.\n
+The team then moves their piece the amount of spaces rolled.\n
+If the team lands on Roll Again they will roll again.\n
+The color of the space landed on dictates what category of question that team will receive.\n
+\n
+The Categories are as follows:\n
+BLUE: Geography\n
+PINK: Entertainment\n
+YELLOW: History\n
+PURPLE: Arts and Literature\n
+GREEN: Science and Nature\n
+ORANGE: Sports and Leisure\n
+\n
+The team who just rolled will now hand off the phone to an opposing team to read the question.\n
+The team whose turn it is will have a certain amount of time to answer the question (as specified in the settings before the game).\n
+If the team answers the question right within the time limit then they get to roll again, otherwise it is the next teams turn.\n
+To earn wedges on the game piece, the team must land on the game board tile with the wedge indicator and answer the corresponding question correctly.\n
+There are six wedge indicator tiles each corresponding to one of the category colors.\n
+\n
+HOW TO WIN: Earn all six different color wedges on your piece. Then return to the center of the game board and answer one final question of a random category correctly.
+</string>
 </resources>

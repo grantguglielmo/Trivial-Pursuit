@@ -19,6 +19,7 @@ public class SoundPlayer {
     private static int dicesound;
     private static int cardsound;
     private static int dicerollsound;
+    private static int chickensound;
 
     public SoundPlayer(Context context){
 
@@ -36,7 +37,7 @@ public class SoundPlayer {
         cardsound = soundPool.load(context,R.raw.card,1);
         dicesound = soundPool.load(context,R.raw.dice,1);
         dicerollsound = soundPool.load(context,R.raw.beep2,1);
-
+        chickensound = soundPool.load(context,R.raw.chickendinner,1);
 
     }
 
@@ -47,6 +48,10 @@ public class SoundPlayer {
     public void dicesound(){
         //play(int soundID, float leftVolume, float rightVolume, int priority, int loop, float rate)
         soundPool.play(dicesound,Globs.volFX,Globs.volFX,1,0,1.0f);
+    }
+    public void chickensound(){
+        //play(int soundID, float leftVolume, float rightVolume, int priority, int loop, float rate)
+        soundPool.play(chickensound,1,1,1,0,1.0f);
     }
     public void cardsound(){
         //play(int soundID, float leftVolume, float rightVolume, int priority, int loop, float rate)

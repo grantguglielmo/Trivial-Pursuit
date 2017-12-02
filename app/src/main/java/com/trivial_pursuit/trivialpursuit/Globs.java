@@ -12,6 +12,10 @@ public class Globs {
         BLUE, PINK, YELLOW, PURPLE, GREEN, ORANGE
     }
 
+    public enum Cat{
+        BLUE, PINK, YELLOW, PURPLE, GREEN, ORANGE, WHITE, BLACK, NONE
+    }
+
     static String qsetPath;
     static int playerCnt;
 
@@ -61,4 +65,13 @@ public class Globs {
     static BoardNode p6Loc;
 
     static int newRoll;
+    static boolean gameOn;
+
+    static boolean killGame;
+
+    static boolean correctbool;
+    static Cat newQ;
+
+    static int teamDraw;
+    static boolean backToMain = false;
 }

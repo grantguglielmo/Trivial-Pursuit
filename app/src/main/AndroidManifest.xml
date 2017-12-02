@@ -24,8 +24,12 @@
         <activity android:name=".LocalPlayGame"></activity>
         <activity android:name=".Dice"
             android:theme="@style/Theme.Transparent"/>
+        <activity android:name=".Rules"></activity>
         <activity android:name=".Quick"></activity>
         <activity android:name=".Settings"></activity>
+        <activity
+            android:name=".Cards"
+            android:theme="@style/Theme.Transparent"/>
 
     </application>
 

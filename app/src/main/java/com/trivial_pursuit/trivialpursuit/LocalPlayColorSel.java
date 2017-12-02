@@ -80,6 +80,8 @@ public class LocalPlayColorSel extends AppCompatActivity {
         if(player == 6 || player == Globs.playerCnt){
             Intent intent = new Intent(this, LocalPlayGame.class);
             startActivity(intent);
+            TextView t = (TextView)findViewById(R.id.load);
+            t.setVisibility(View.VISIBLE);
         }
         else {
             player++;
@@ -117,6 +119,8 @@ public class LocalPlayColorSel extends AppCompatActivity {
         if(player == 6 || player == Globs.playerCnt){
             Intent intent = new Intent(this, LocalPlayGame.class);
             startActivity(intent);
+            TextView t = (TextView)findViewById(R.id.load);
+            t.setVisibility(View.VISIBLE);
         }
         else {
             player++;
@@ -154,6 +158,8 @@ public class LocalPlayColorSel extends AppCompatActivity {
         if(player == 6 || player == Globs.playerCnt){
             Intent intent = new Intent(this, LocalPlayGame.class);
             startActivity(intent);
+            TextView t = (TextView)findViewById(R.id.load);
+            t.setVisibility(View.VISIBLE);
         }
         else {
             player++;
@@ -191,6 +197,8 @@ public class LocalPlayColorSel extends AppCompatActivity {
         if(player == 6 || player == Globs.playerCnt){
             Intent intent = new Intent(this, LocalPlayGame.class);
             startActivity(intent);
+            TextView t = (TextView)findViewById(R.id.load);
+            t.setVisibility(View.VISIBLE);
         }
         else {
             player++;
@@ -228,6 +236,8 @@ public class LocalPlayColorSel extends AppCompatActivity {
         if(player == 6 || player == Globs.playerCnt){
             Intent intent = new Intent(this, LocalPlayGame.class);
             startActivity(intent);
+            TextView t = (TextView)findViewById(R.id.load);
+            t.setVisibility(View.VISIBLE);
         }
         else {
             player++;
@@ -265,6 +275,8 @@ public class LocalPlayColorSel extends AppCompatActivity {
         if(player == 6 || player == Globs.playerCnt){
             Intent intent = new Intent(this, LocalPlayGame.class);
             startActivity(intent);
+            TextView t = (TextView)findViewById(R.id.load);
+            t.setVisibility(View.VISIBLE);
         }
         else {
             player++;
@@ -290,6 +302,10 @@ public class LocalPlayColorSel extends AppCompatActivity {
         super.onResume();
         continueMusic = false;
         MusicManager.start(this, MusicManager.MUSIC_MENU, true);
+        TextView t = (TextView)findViewById(R.id.load);
+        t.setVisibility(View.INVISIBLE);
+        if(Globs.backToMain)
+            onBackPressed();
     }
 
     @Override
@@ -306,6 +322,8 @@ public class LocalPlayColorSel extends AppCompatActivity {
     @Override
     public void onBackPressed()
     {
+        if(Globs.backToMain)
+            super.onBackPressed();
         if(player == 1) {
             super.onBackPressed();
         }
