@@ -1505,6 +1505,25 @@ public class LocalPlayGame extends AppCompatActivity {
         }
     };
 
+    public Globs.Cat randCat(){
+        Random r = new Random();
+        int randcat = r.nextInt(6);
+        switch(randcat){
+            case 0:
+                return Globs.Cat.BLUE;
+            case 1:
+                return Globs.Cat.PINK;
+            case 2:
+                return Globs.Cat.YELLOW;
+            case 3:
+                return Globs.Cat.PURPLE;
+            case 4:
+                return Globs.Cat.GREEN;
+            default:
+                return Globs.Cat.ORANGE;
+        }
+    }
+
     public View.OnTouchListener boardListener = new View.OnTouchListener() {
 
         @Override
@@ -1517,7 +1536,7 @@ public class LocalPlayGame extends AppCompatActivity {
                 if(moveableLocs != null) {
                     BoardNode node = boardTree.allNodes.get(0);
                     if (moveableLocs.contains(node)) {
-                        Globs.newQ = Globs.Cat.BLUE;
+                        Globs.newQ = randCat();
                         movPiece(event.getX(), event.getY());
                         updatePiece(node);
                         centerP = true;
@@ -2163,29 +2182,38 @@ public class LocalPlayGame extends AppCompatActivity {
         if (!continueMusic) {
             MusicManager.pause();
         }
+    }
+
+    @Override
+    public void onBackPressed()
+    {
         try {
-                Globs.blueFile.close();
-                Globs.pinkFile.close();
-                Globs.yellowFile.close();
-                Globs.purpleFile.close();
-                Globs.greenFile.close();
-                Globs.orangeFile.close();
-                SharedPreferences mPref = getSharedPreferences(Globs.qsetPath.substring(Globs.qsetPath.indexOf("/") + 1
-                        , Globs.qsetPath.length() - 1), 0);
-                SharedPreferences.Editor editor = mPref.edit();
-                editor.putString("blue", Integer.toString(Globs.blueIdx));
-                editor.putString("pink", Integer.toString(Globs.pinkIdx));
-                editor.putString("yellow", Integer.toString(Globs.yellowIdx));
-                editor.putString("purple", Integer.toString(Globs.purpleIdx));
-                editor.putString("green", Integer.toString(Globs.greenIdx));
-                editor.putString("orange", Integer.toString(Globs.orangeIdx));
-                editor.commit();
-                Globs.loadedQSet = false;
+            Globs.blueFile.close();
+            Globs.pinkFile.close();
+            Globs.yellowFile.close();
+            Globs.purpleFile.close();
+            Globs.greenFile.close();
+            Globs.orangeFile.close();
+            SharedPreferences mPref = getSharedPreferences(Globs.qsetPath.substring(Globs.qsetPath.indexOf("/") + 1
+                    , Globs.qsetPath.length() - 1), 0);
+            SharedPreferences.Editor editor = mPref.edit();
+            editor.putString("blue", Integer.toString(Globs.blueIdx));
+            editor.putString("pink", Integer.toString(Globs.pinkIdx));
+            editor.putString("yellow", Integer.toString(Globs.yellowIdx));
+            editor.putString("purple", Integer.toString(Globs.purpleIdx));
+            editor.putString("green", Integer.toString(Globs.greenIdx));
+            editor.putString("orange", Integer.toString(Globs.orangeIdx));
+            editor.commit();
+            Globs.loadedQSet = false;
         }
         catch(IOException e){
 
         }
+        super.onBackPressed();
     }
+
+
+
     @Override
     public void onResume() {
         super.onResume();
@@ -2194,6 +2222,7 @@ public class LocalPlayGame extends AppCompatActivity {
         if(Globs.killGame){
             Globs.killGame = false;
             onBackPressed();
+            return;
         }
         if(rulesShown){
             rulesShown = false;

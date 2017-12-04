@@ -201,6 +201,7 @@
             android:layout_height="30dp"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
+            android:visibility="invisible"
             android:src="@drawable/wedgegr"
             />
         <ImageView
@@ -209,6 +210,7 @@
             android:layout_height="30dp"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
+            android:visibility="invisible"
             android:src="@drawable/wedgeye"
             />
         <ImageView
@@ -217,6 +219,7 @@
             android:layout_height="30dp"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
+            android:visibility="invisible"
             android:src="@drawable/wedgepu"
             />
         <ImageView
@@ -225,6 +228,7 @@
             android:layout_height="30dp"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
+            android:visibility="invisible"
             android:src="@drawable/wedgepi"
             />
         <ImageView
@@ -233,6 +237,7 @@
             android:layout_height="30dp"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
+            android:visibility="invisible"
             android:src="@drawable/wedgeor"
             />
         <ImageView
@@ -241,6 +246,7 @@
             android:layout_height="30dp"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
+            android:visibility="invisible"
             android:src="@drawable/wedgebl"
             />
 
@@ -250,6 +256,7 @@
             android:layout_height="30dp"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
+            android:visibility="invisible"
             android:src="@drawable/wedgegr"
             />
         <ImageView
@@ -258,6 +265,7 @@
             android:layout_height="30dp"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
+            android:visibility="invisible"
             android:src="@drawable/wedgeye"
             />
         <ImageView
@@ -266,6 +274,7 @@
             android:layout_height="30dp"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
+            android:visibility="invisible"
             android:src="@drawable/wedgepu"
             />
         <ImageView
@@ -274,6 +283,7 @@
             android:layout_height="30dp"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
+            android:visibility="invisible"
             android:src="@drawable/wedgepi"
             />
         <ImageView
@@ -282,6 +292,7 @@
             android:layout_height="30dp"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
+            android:visibility="invisible"
             android:src="@drawable/wedgeor"
             />
         <ImageView
@@ -290,6 +301,7 @@
             android:layout_height="30dp"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
+            android:visibility="invisible"
             android:src="@drawable/wedgebl"
             />
 
@@ -299,6 +311,7 @@
             android:layout_height="30dp"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
+            android:visibility="invisible"
             android:src="@drawable/wedgegr"
             />
         <ImageView
@@ -307,6 +320,7 @@
             android:layout_height="30dp"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
+            android:visibility="invisible"
             android:src="@drawable/wedgeye"
             />
         <ImageView
@@ -315,6 +329,7 @@
             android:layout_height="30dp"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
+            android:visibility="invisible"
             android:src="@drawable/wedgepu"
             />
         <ImageView
@@ -323,6 +338,7 @@
             android:layout_height="30dp"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
+            android:visibility="invisible"
             android:src="@drawable/wedgepi"
             />
         <ImageView
@@ -331,6 +347,7 @@
             android:layout_height="30dp"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
+            android:visibility="invisible"
             android:src="@drawable/wedgeor"
             />
         <ImageView
@@ -339,6 +356,7 @@
             android:layout_height="30dp"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
+            android:visibility="invisible"
             android:src="@drawable/wedgebl"
             />
 
@@ -348,6 +366,7 @@
             android:layout_height="30dp"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
+            android:visibility="invisible"
             android:src="@drawable/wedgegr"
             />
         <ImageView
@@ -356,6 +375,7 @@
             android:layout_height="30dp"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
+            android:visibility="invisible"
             android:src="@drawable/wedgeye"
             />
         <ImageView
@@ -364,6 +384,7 @@
             android:layout_height="30dp"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
+            android:visibility="invisible"
             android:src="@drawable/wedgepu"
             />
         <ImageView
@@ -372,6 +393,7 @@
             android:layout_height="30dp"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
+            android:visibility="invisible"
             android:src="@drawable/wedgepi"
             />
         <ImageView
@@ -380,6 +402,7 @@
             android:layout_height="30dp"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
+            android:visibility="invisible"
             android:src="@drawable/wedgeor"
             />
         <ImageView
@@ -388,6 +411,7 @@
             android:layout_height="30dp"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
+            android:visibility="invisible"
             android:src="@drawable/wedgebl"
             />
 
@@ -397,6 +421,7 @@
             android:layout_height="30dp"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
+            android:visibility="invisible"
             android:src="@drawable/wedgegr"
             />
         <ImageView
@@ -405,6 +430,7 @@
             android:layout_height="30dp"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
+            android:visibility="invisible"
             android:src="@drawable/wedgeye"
             />
         <ImageView
@@ -413,6 +439,7 @@
             android:layout_height="30dp"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
+            android:visibility="invisible"
             android:src="@drawable/wedgepu"
             />
         <ImageView
@@ -421,6 +448,7 @@
             android:layout_height="30dp"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
+            android:visibility="invisible"
             android:src="@drawable/wedgepi"
             />
         <ImageView
@@ -429,6 +457,7 @@
             android:layout_height="30dp"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
+            android:visibility="invisible"
             android:src="@drawable/wedgeor"
             />
         <ImageView
@@ -437,6 +466,7 @@
             android:layout_height="30dp"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
+            android:visibility="invisible"
             android:src="@drawable/wedgebl"
             />
 
@@ -446,6 +476,7 @@
             android:layout_height="30dp"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
+            android:visibility="invisible"
             android:src="@drawable/wedgegr"
             />
         <ImageView
@@ -454,6 +485,7 @@
             android:layout_height="30dp"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
+            android:visibility="invisible"
             android:src="@drawable/wedgeye"
             />
         <ImageView
@@ -462,6 +494,7 @@
             android:layout_height="30dp"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
+            android:visibility="invisible"
             android:src="@drawable/wedgepu"
             />
         <ImageView
@@ -470,6 +503,7 @@
             android:layout_height="30dp"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
+            android:visibility="invisible"
             android:src="@drawable/wedgepi"
             />
         <ImageView
@@ -478,6 +512,7 @@
             android:layout_height="30dp"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
+            android:visibility="invisible"
             android:src="@drawable/wedgeor"
             />
         <ImageView
@@ -485,6 +520,7 @@
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_centerHorizontal="true"
+            android:visibility="invisible"
             android:layout_centerVertical="true"
             android:src="@drawable/wedgebl"
             />

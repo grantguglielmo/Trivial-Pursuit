@@ -8,29 +8,6 @@
     tools:context="com.trivial_pursuit.trivialpursuit.Cards">
 
     <ImageView
-        android:id="@+id/correctbutton"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:layout_alignEnd="@+id/questionTxt2"
-        android:layout_alignRight="@+id/questionTxt2"
-        android:layout_alignTop="@+id/incorrectbutton"
-        android:onClick="correctfunc"
-        android:src="@drawable/correct" />
-
-    <ImageView
-        android:id="@+id/incorrectbutton"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:layout_alignLeft="@+id/questionTxt2"
-        android:layout_alignStart="@+id/questionTxt2"
-        android:layout_below="@+id/card1"
-        android:layout_marginLeft="20dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="18dp"
-        android:onClick="incorrectfunc"
-        android:src="@drawable/incorrect" />
-
-    <ImageView
         android:id="@+id/card1"
         android:layout_width="500dp"
         android:layout_height="480dp"
@@ -38,17 +15,6 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
-
-    <TextView
-        android:id="@+id/answerHelp2"
-        android:layout_width="220dp"
-        android:layout_height="40dp"
-        android:layout_alignBottom="@+id/card1"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="50dp"
-        android:text="Hold Card For Answer"
-        android:textColor="@color/white"
-        android:textSize="22sp" />
 
     <TextView
         android:id="@+id/questionTxt2"
@@ -94,6 +60,41 @@
         android:src="@drawable/hourstart" />
 
     <ImageView
+        android:id="@+id/correctbutton"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_alignEnd="@+id/questionTxt2"
+        android:layout_alignRight="@+id/questionTxt2"
+        android:layout_alignTop="@+id/incorrectbutton"
+        android:onClick="correctfunc"
+        android:src="@drawable/correct" />
+
+    <ImageView
+        android:id="@+id/incorrectbutton"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_above="@+id/lock"
+        android:layout_alignLeft="@+id/questionTxt2"
+        android:layout_alignStart="@+id/questionTxt2"
+        android:layout_marginBottom="11dp"
+        android:layout_marginLeft="22dp"
+        android:layout_marginStart="22dp"
+        android:onClick="incorrectfunc"
+        android:src="@drawable/incorrect" />
+
+    <TextView
+        android:id="@+id/answerHelp2"
+        android:layout_width="220dp"
+        android:layout_height="40dp"
+        android:layout_alignBottom="@+id/card1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="50dp"
+        android:layout_above="@id/incorrectbutton"
+        android:text="Hold Card For Answer"
+        android:textColor="@color/white"
+        android:textSize="22sp" />
+
+    <ImageView
         android:id="@+id/lock"
         android:layout_width="30dp"
         android:layout_height="30dp"
@@ -107,8 +108,8 @@
         android:id="@+id/lockText"
         android:layout_width="140dp"
         android:layout_height="30dp"
-        android:layout_alignLeft="@+id/questionTxt2"
-        android:layout_alignStart="@+id/questionTxt2"
+        android:layout_below="@id/incorrectbutton"
+        android:layout_toRightOf="@+id/lock"
         android:layout_alignTop="@+id/lock"
         android:onClick="locker"
         android:text="Lock Answer"
